@@ -21,14 +21,14 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PokemonDamageCalculator
-build_property.ProjectDir = C:\Users\Joseph\PokemonDamageCalculator\src\PokemonDamageCalculator\
+build_property.ProjectDir = c:\Users\Joseph\Documents\PokemonDamageCalculator\src\PokemonDamageCalculator\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Joseph/PokemonDamageCalculator/src/PokemonDamageCalculator/App.axaml]
+[c:/Users/Joseph/Documents/PokemonDamageCalculator/src/PokemonDamageCalculator/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/Joseph/PokemonDamageCalculator/src/PokemonDamageCalculator/MainWindow.axaml]
+[c:/Users/Joseph/Documents/PokemonDamageCalculator/src/PokemonDamageCalculator/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

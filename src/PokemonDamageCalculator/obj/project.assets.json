@@ -1609,11 +1609,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joseph\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj",
+      "projectUniqueName": "C:\\Users\\Joseph\\Documents\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj",
       "projectName": "PokemonDamageCalculator",
-      "projectPath": "C:\\Users\\Joseph\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj",
+      "projectPath": "C:\\Users\\Joseph\\Documents\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj",
       "packagesPath": "C:\\Users\\Joseph\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joseph\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\obj\\",
+      "outputPath": "C:\\Users\\Joseph\\Documents\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

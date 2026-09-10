@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X0FPF0V9WAc=",
+  "dgSpecHash": "P3ftE6UHtiI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Joseph\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj",
+  "projectFilePath": "c:\\Users\\Joseph\\Documents\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joseph\\.nuget\\packages\\avalonia\\12.0.5\\avalonia.12.0.5.nupkg.sha512",
     "C:\\Users\\Joseph\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.27548.20260419\\avalonia.angle.windows.natives.2.1.27548.20260419.nupkg.sha512",

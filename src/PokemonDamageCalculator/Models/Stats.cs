@@ -24,20 +24,43 @@ public class Stats
     }
 
     //calculates final stats of pokemon, not including nature
-    public static Stats calcFinalStats(int level, Stats basestats, Stats ivs, Stats evs)
+    public static Stats calcFinalStats(int level, Stats basestats, Stats ivs, Stats evs, Nature nature)
     {
         //calc each stat using official formulas
         int hp = ((2 * basestats.HP + ivs.HP + (evs.HP / 4)) * level) / 100 + level + 10;
 
-        int atk = (((2 * basestats.Atk + ivs.Atk + (evs.Atk / 4)) * level) / 100 + 5) * 1;
+        int atk = ((2 * basestats.Atk + ivs.Atk + (evs.Atk / 4)) * level) / 100 + 5;
 
-        int def = (((2 * basestats.Def + ivs.Def + (evs.Def / 4)) * level) / 100 + 5) * 1;
+        int def = ((2 * basestats.Def + ivs.Def + (evs.Def / 4)) * level) / 100 + 5;
         
-        int spatk = (((2 * basestats.SpAtk + ivs.SpAtk + (evs.SpAtk / 4)) * level) / 100 + 5) * 1;
+        int spatk = ((2 * basestats.SpAtk + ivs.SpAtk + (evs.SpAtk / 4)) * level) / 100 + 5;
         
-        int spdef = (((2 * basestats.SpDef + ivs.SpDef + (evs.SpDef / 4)) * level) / 100 + 5) * 1;
+        int spdef = ((2 * basestats.SpDef + ivs.SpDef + (evs.SpDef / 4)) * level) / 100 + 5;
 
-        int speed = (((2 * basestats.Speed + ivs.Speed + (evs.Speed / 4)) * level) / 100 + 5) * 1;
+        int speed = ((2 * basestats.Speed + ivs.Speed + (evs.Speed / 4)) * level) / 100 + 5;
+
+        //convert enum to int for convenience
+        int key = (int)nature;
+        
+        //natures increase one stat by 10%, decrease another by 10% (except for neutral natures)
+
+        if(key % 6 != 0){ //ignore neutral natures
+
+            //determine which stat is boosted
+            if(key < 5) atk = (int)(atk * 1.1);
+            else if(key < 10) def = (int)(def * 1.1);
+            else if(key < 15) spatk = (int)(spatk * 1.1);
+            else if(key < 20) spdef = (int)(spdef * 1.1);
+            else speed = (int)(speed * 1.1);
+
+            //determine which stat is decreased
+            int i = key % 5;
+            if(i == 0) atk = (int)(atk * 0.9);
+            else if(i == 1) def = (int)(def * 0.9);
+            else if(i == 2) spatk = (int)(spatk * 0.9);
+            else if(i == 3) spdef = (int)(spdef * 0.9);
+            else speed = (int)(speed * 0.9);
+        }
 
         return new Stats(hp, atk, def, spatk, spdef, speed);
     }
@@ -52,5 +75,3 @@ public class Stats
         Console.WriteLine("Speed: \t" + Speed);
     }
 }
-
-//FOR LATER: Store each nature as a global constant Stats object where each stat is either 10, 11, or 9 so we can cast it to a float and divide by 10 to act as multiplier
