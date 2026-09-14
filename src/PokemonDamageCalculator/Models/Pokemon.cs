@@ -13,10 +13,11 @@ public class Pokemon
     //general attributes
     public string Name {get; private set;} = "";
     public int Level {get; private set;}
-    public int CurrentHP {get; set;} //Stat objects store max hp. This int stores current hp
     //To be added: Ability
+    //To be added: Held Item
 
     //stats
+    public int CurrentHP {get; set;} //FinalStats stores max hp. This int stores current hp
     public Stats BaseStats {get; private set;}
     public Stats IVs {get; private set;}
     public Stats EVs {get; private set;}

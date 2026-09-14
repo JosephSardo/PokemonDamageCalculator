@@ -11,7 +11,7 @@ public class BattleState
     public Terrain Terrain {get; set;}
 
     //note: screens don't stack with aurora veil
-    //only determines whether the OPPONENT has reflect/light screen/veil
+    //only determines whether the defender has reflect/light screen/veil
     public Boolean Reflect {get; set;}
     public Boolean LightScreen {get; set;}
     public Boolean AuroraVeil {get; set;}
