@@ -9,17 +9,23 @@ public class Pokemon
 {
     //create properties
     //base stats, ivs, and evs are still stored even though we store the final stats bc the final stats should be dynamically updatable
-    public string Name {get; set;} = "";
-    public int Level {get; set;}
+
+    //general attributes
+    public string Name {get; private set;} = "";
+    public int Level {get; private set;}
     public int CurrentHP {get; set;} //Stat objects store max hp. This int stores current hp
+    //To be added: Ability
 
-    public Stats BaseStats {get; set;}
-    public Stats IVs {get; set;}
-    public Stats EVs {get; set;}
-    public Stats FinalStats {get; set;}
+    //stats
+    public Stats BaseStats {get; private set;}
+    public Stats IVs {get; private set;}
+    public Stats EVs {get; private set;}
+    public Stats FinalStats {get; private set;}
+    public StatChanges StatChanges {get; set;}
 
-    public (PokemonType Type1, PokemonType? Type2) Types {get; set;} //second type is nullable bc not all pokemon have 2 types
-    public Nature Nature {get; set;}
+    //enums
+    public (PokemonType Type1, PokemonType? Type2) Types {get; private set;} //second type is nullable bc not all pokemon have 2 types
+    public Nature Nature {get; private set;}
     public StatusCondition Status {get; set;}
 
     public Pokemon(string name, Stats basestats, PokemonType type1, PokemonType type2)
@@ -32,6 +38,7 @@ public class Pokemon
         EVs = new Stats(0, 0, 0, 0, 0, 0);          //default no EVs
         Nature = Nature.Serious;                    //default neutral nature
         FinalStats = Stats.calcFinalStats(Level, BaseStats, IVs, EVs, Nature); //calculates final stats of pokemon, not including nature
+        StatChanges = new StatChanges();
 
         CurrentHP = FinalStats.HP;
         Types = (type1, type2);

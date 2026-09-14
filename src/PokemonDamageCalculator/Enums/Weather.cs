@@ -1,6 +1,7 @@
 public enum Weather
 {
     //standard weather conditions
+    None,
     Sun,
     Rain,
     Sand,

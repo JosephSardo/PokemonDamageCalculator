@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Joseph\\Documents\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj": {}
+    "C:\\Users\\Joseph\\Documents\\GitHub\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Joseph\\Documents\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj": {
+    "C:\\Users\\Joseph\\Documents\\GitHub\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Joseph\\Documents\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj",
+        "projectUniqueName": "C:\\Users\\Joseph\\Documents\\GitHub\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj",
         "projectName": "PokemonDamageCalculator",
-        "projectPath": "c:\\Users\\Joseph\\Documents\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj",
+        "projectPath": "C:\\Users\\Joseph\\Documents\\GitHub\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\PokemonDamageCalculator.csproj",
         "packagesPath": "C:\\Users\\Joseph\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Joseph\\Documents\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\obj\\",
+        "outputPath": "C:\\Users\\Joseph\\Documents\\GitHub\\PokemonDamageCalculator\\src\\PokemonDamageCalculator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

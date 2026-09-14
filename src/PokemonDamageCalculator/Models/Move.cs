@@ -7,10 +7,10 @@ namespace PokemonDamageCalculator.Models;
 public class Move
 {
     //create properties
-    public string Name {get; set;} = "";
-    public int Power {get; set;}
-    public PokemonType Type {get; set;}
-    public MoveCategory Category {get; set;}
+    public string Name {get; private set;} = "";
+    public int Power {get; private set;}
+    public PokemonType Type {get; private set;}
+    public MoveCategory Category {get; private set;}
 
     public Move(string name, int power, PokemonType type, MoveCategory category)
     {
