@@ -17,7 +17,6 @@ public class Pokemon
     //To be added: Held Item
 
     //stats
-    public int CurrentHP {get; set;} //FinalStats stores max hp. This int stores current hp
     public Stats BaseStats {get; private set;}
     public Stats IVs {get; private set;}
     public Stats EVs {get; private set;}
@@ -41,7 +40,6 @@ public class Pokemon
         FinalStats = Stats.calcFinalStats(Level, BaseStats, IVs, EVs, Nature); //calculates final stats of pokemon, not including nature
         StatChanges = new StatChanges();
 
-        CurrentHP = FinalStats.HP;
         Types = (type1, type2);
         Status = StatusCondition.None;  //default no status
     }

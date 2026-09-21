@@ -3,7 +3,7 @@ using System;
 namespace PokemonDamageCalculator.Models;
 
 //service class to calculate move damage
-public class DamageCalculator
+public static class DamageCalculator
 {
     public static int calcDamage(Pokemon attacker, Pokemon defender, Move move, BattleState battleState)
     {
