@@ -237,6 +237,68 @@ public class Pokemon
         FinalStats = Stats.calcFinalStats(Level, BaseStats, IVs, EVs, Nature); //update final stats
     }
 
+    //change in-battle stat boosts
+    //change atk
+    public void changeAtkBoost(int atk)
+    {
+        StatChanges.changeAtk(atk);
+    }
+
+    //change def
+    public void changeDefBoost(int def)
+    {
+        StatChanges.changeDef(def);
+    }
+
+    //change spatk
+    public void changeSpAtkBoost(int spatk)
+    {
+        StatChanges.changeSpAtk(spatk);
+    }
+
+    //change spdef
+    public void changeSpDefBoost(int spdef)
+    {
+        StatChanges.changeSpDef(spdef);
+    }
+
+    //change speed
+    public void changeSpeedBoost(int speed)
+    {
+        StatChanges.changeSpeed(speed);
+    }
+
+    //get in-battle stat boosts
+    //get atk boost
+    public double getAtkMultiplier()
+    {
+        return StatChanges.getAtkMultiplier();
+    }
+
+    //get def boost
+    public double getDefMultiplier()
+    {
+        return StatChanges.getDefMultiplier();
+    }
+
+    //get spatk boost
+    public double getSpAtkMultiplier()
+    {
+        return StatChanges.getSpAtkMultiplier();
+    }
+
+    //get spdef boost
+    public double getSpDefMultiplier()
+    {
+        return StatChanges.getSpDefMultiplier();
+    }
+
+    //get speed boost
+    public double getSpeedMultiplier()
+    {
+        return StatChanges.getSpeedMultiplier();
+    }
+
     /*
 
     Self note: Values can be accessed like this:

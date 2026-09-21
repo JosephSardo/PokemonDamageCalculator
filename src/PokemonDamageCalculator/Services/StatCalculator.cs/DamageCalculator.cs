@@ -7,16 +7,19 @@ public static class DamageCalculator
 {
     public static int calcDamage(Pokemon attacker, Pokemon defender, Move move, BattleState battleState)
     {
-        int damage;
+        //To do: don't condense every multiplier into one double (it prevents damage numbers from being truncated in the correct places)
         double multiplier = 1; //final multiplier calculated then applied to damage to prevent rounding issues
-        int relevantAtk;
-        int relevantDef;
+        double relevantAtk;
+        double relevantDef;
         PokemonType moveType = move.Type;
 
         if(move.Category == MoveCategory.Physical)
         {
             relevantAtk = attacker.FinalStats.Atk;
             relevantDef = defender.FinalStats.Def;
+            //determine stat changes
+            relevantAtk = relevantAtk * attacker.getAtkMultiplier();
+            relevantDef = relevantDef * defender.getDefMultiplier();
         } else
         {
             relevantAtk = attacker.FinalStats.SpAtk;
@@ -118,7 +121,17 @@ public static class DamageCalculator
         }
 
         //run official damage formula
-        damage = ((((2 * attacker.Level / 5) + 2) * move.Power * relevantAtk / relevantDef) / 50) + 2;
+        //formula is done in steps to ensure decimal truncation is performed in the correct places
+        //double damage = ((((2 * attacker.Level / 5) + 2) * move.Power * relevantAtk / relevantDef) / 50) + 2;
+
+        int damage = (2 * attacker.Level) / 5;
+        damage += 2;
+        damage *= move.Power;
+        damage *= (int)relevantAtk;
+        damage /= (int)relevantDef;
+        damage /= 50;
+        damage += 2;
+
         damage = (int)(damage * multiplier);
 
         return damage;

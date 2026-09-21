@@ -3,25 +3,15 @@ using System;
 namespace PokemonDamageCalculator.Models;
 
 //class to represent pokemon stats (base stats, ivs, evs)
-public class Stats
+public class Stats(int hp, int atk, int def, int spatk, int spdef, int speed)
 {
     //create properties
-    public int HP {get; set;}
-    public int Atk {get; set;}
-    public int Def {get; set;}
-    public int SpAtk {get; set;}
-    public int SpDef {get; set;}
-    public int Speed {get; set;}
-
-    public Stats(int hp, int atk, int def, int spatk, int spdef, int speed)
-    {
-        HP = hp;
-        Atk = atk;
-        Def = def;
-        SpAtk = spatk;
-        SpDef = spdef;
-        Speed = speed;
-    }
+    public int HP { get; set; } = hp;
+    public int Atk { get; set; } = atk;
+    public int Def { get; set; } = def;
+    public int SpAtk { get; set; } = spatk;
+    public int SpDef { get; set; } = spdef;
+    public int Speed { get; set; } = speed;
 
     //calculates final stats of pokemon, not including nature
     public static Stats calcFinalStats(int level, Stats basestats, Stats ivs, Stats evs, Nature nature)
