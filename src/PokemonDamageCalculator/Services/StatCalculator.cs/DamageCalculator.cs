@@ -2,7 +2,7 @@ using System;
 
 namespace PokemonDamageCalculator.Models;
 
-//service class to calculate move damage
+//service class to calculate maxiumum possible move damage
 public static class DamageCalculator
 {
     public static int calcDamage(Pokemon attacker, Pokemon defender, Move move, BattleState battleState)
@@ -108,6 +108,13 @@ public static class DamageCalculator
                 multiplier *= 2;
                 moveType = PokemonType.Ice;
             }
+        }
+
+        //determine type matchup
+        multiplier *= TypeChart.getEffectiveness(move.Type, defender.Types.Type1);
+        if(defender.Types.Type2 != null) //check if the pokemon has a second type before determining its matchup
+        {
+            multiplier *= TypeChart.getEffectiveness(move.Type, (PokemonType)defender.Types.Type2);
         }
 
         //run official damage formula

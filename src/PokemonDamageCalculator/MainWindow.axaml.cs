@@ -43,20 +43,30 @@ public partial class MainWindow : Window
 
         BattleState BattleState = new();
 
-        //Test: no stab or type advantage/disadvantage
+        //Test: no stab, neutral type matchup
         Move FireFang = new("Fire Fang", 65, PokemonType.Fire, MoveCategory.Physical);
         int ffdmg = DamageCalculator.calcDamage(Garchomp, Aggron, FireFang, BattleState);
         Console.WriteLine("Fire Fang Damage: " + ffdmg);
 
-        //Test: stab, no type advantage/disadvantage
+        //Test: no stab, supereffective
+        Move BrickBreak = new("Brick Break", 75, PokemonType.Fighting, MoveCategory.Physical);
+        int bbdmg = DamageCalculator.calcDamage(Garchomp, Aggron, BrickBreak, BattleState);
+        Console.WriteLine("Brick Break Damage: " + bbdmg);
+
+        //Test: stab, ineffective
         Move DragonClaw = new("Dragon Claw", 80, PokemonType.Dragon, MoveCategory.Physical);
         int dcdmg = DamageCalculator.calcDamage(Garchomp, Aggron, DragonClaw, BattleState);
         Console.WriteLine("Dragon Claw Damage: " + dcdmg);
+
+        //Test: stab, supereffective
+        Move Quake = new("Earthquake", 100, PokemonType.Ground, MoveCategory.Physical);
+        int eqdmg = DamageCalculator.calcDamage(Garchomp, Aggron, Quake, BattleState);
+        Console.WriteLine("Earthquake Damage: " + eqdmg);
     }
 }
 
 /*
-Garchomp Set: (for testing)
+Sets: (for testing)
 
 Garchomp @ Loaded Dice
 Ability: Rough Skin
@@ -67,9 +77,7 @@ Adamant Nature
 - Dragon Claw
 - Earthquake
 - Fire Fang
-- Swords Dance
-
-Aggron Set:
+- Brick Break
 
 Aggron @ Aggronite
 Ability: Strong Jaw

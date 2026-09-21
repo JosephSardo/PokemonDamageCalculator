@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 
+//service class to determine type matchups
 public static class TypeChart
 {
     //make a hashmap storing each type matchup (key = attacking and defending type, value = multiplier)
