@@ -10,7 +10,9 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        Pokemon Garchomp = new("Garchomp", new Stats(108, 130, 95, 80, 85, 102), PokemonType.Dragon, PokemonType.Ground);
+        //Commented code below is for testing. Will be removed later
+
+        /*Pokemon Garchomp = new("Garchomp", new Stats(108, 130, 95, 80, 85, 102), PokemonType.Dragon, PokemonType.Ground);
         //Console.WriteLine("Made Garchomp");
         Garchomp.changeAtkEV(252);
         Garchomp.changeSpeedEV(252);
@@ -26,7 +28,7 @@ public partial class MainWindow : Window
         Aggron.changeNature(Nature.Impish);
         //Console.WriteLine("Made Aggron EV Spread");
 
-        /*Console.WriteLine("Garchomp Stats: ");
+        Console.WriteLine("Garchomp Stats: ");
         Console.WriteLine("Name: " + Garchomp.Name);
         Console.WriteLine("Level: " + Garchomp.Level);
         Garchomp.printFinalStats();
@@ -36,7 +38,7 @@ public partial class MainWindow : Window
         Console.WriteLine("Aggron Stats: ");
         Console.WriteLine("Name: " + Aggron.Name);
         Console.WriteLine("Level: " + Aggron.Level);
-        Aggron.printFinalStats();*/
+        Aggron.printFinalStats();
 
         //testing attack calculation
         //assume garchomp is attacker
@@ -86,6 +88,7 @@ public partial class MainWindow : Window
         Quake = new("Earthquake", 100, PokemonType.Ground, MoveCategory.Physical);
         eqdmg = DamageCalculator.calcDamage(Garchomp, Aggron, Quake, BattleState);
         Console.WriteLine("Earthquake Damage: " + eqdmg);
+        */
     }
 }
 

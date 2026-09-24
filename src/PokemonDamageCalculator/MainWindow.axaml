@@ -4,6 +4,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="PokemonDamageCalculator.MainWindow"
-        Title="PokemonDamageCalculator">
-    Welcome to Avalonia!
+        Title="PokemonDamageCalculator"
+        Width="850"
+        Height="600"
+        CanResize="False">
+
+        <Grid ColumnDefinitions="*,*,*">
+
+            <!-- Pokemon1 -->
+            <StackPanel Grid.Column="0" 
+                        HorizontalAlignment="Center">
+
+                <TextBlock Text="Pokemon 1"
+                            FontSize="32"
+                            HorizontalAlignment="Center"/>
+
+                <ComboBox HorizontalAlignment="Center">
+                    <!-- Pokemon Choices -->
+                </ComboBox>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"/>
+
+            </StackPanel>
+
+            <!-- Damage -->
+            <StackPanel Grid.Column="1" 
+                        HorizontalAlignment="Center">
+
+                <TextBlock Text="Selected Move Damage"
+                            FontSize="24"
+                            HorizontalAlignment="Center"/>
+                
+                <TextBlock Text="(Select a move first)"
+                            FontSize="16"
+                            HorizontalAlignment="Center"/>
+
+            </StackPanel>
+
+            <!-- Pokemon2 -->
+            <StackPanel Grid.Column="2" 
+                        HorizontalAlignment="Center">
+
+                <TextBlock Text="Pokemon 2"
+                            FontSize="32"
+                            HorizontalAlignment="Center"/>
+
+                <ComboBox HorizontalAlignment="Center">
+                    <!-- Pokemon Choices -->
+                </ComboBox>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"/>
+
+            </StackPanel>
+        </Grid>
+
 </Window>
