@@ -13,6 +13,7 @@ public class Pokemon
     //general attributes
     public string Name {get; private set;} = "";
     public int Level {get; private set;}
+    //To be added: Gender (affects damage from pokemon with rivalry ability)
     //To be added: Ability
     //To be added: Held Item
 

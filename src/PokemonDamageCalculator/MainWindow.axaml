@@ -5,41 +5,313 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="PokemonDamageCalculator.MainWindow"
         Title="PokemonDamageCalculator"
-        Width="850"
-        Height="600"
+        Width="900"
+        Height="900"
         CanResize="False">
 
         <Grid ColumnDefinitions="*,*,*">
 
             <!-- Pokemon1 -->
             <StackPanel Grid.Column="0" 
-                        HorizontalAlignment="Center">
+                        HorizontalAlignment="Center"
+                        Spacing="10">
 
                 <TextBlock Text="Pokemon 1"
                             FontSize="32"
                             HorizontalAlignment="Center"/>
 
-                <ComboBox HorizontalAlignment="Center">
-                    <!-- Pokemon Choices -->
+                <!-- Choose Pokemon 1 -->
+                <AutoCompleteBox x:Name="Pokemon1acb"
+                                HorizontalAlignment="Center"
+                                ValueMemberBinding="{ReflectionBinding Name}"
+                                FilterMode="Contains"
+                                MinimumPrefixLength="1"
+                                PlaceholderText="Search Pokemon...">
+
+
+
+                </AutoCompleteBox>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,-10"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,-10"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,-10"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Edit Moves:"
+                            HorizontalAlignment="Center"/>
+                
+                <!-- Move choices -->
+                <ComboBox HorizontalAlignment="Center"
+                        Margin="0,0,0,-10">
+                    
                 </ComboBox>
 
-                <Button Content="Move"
-                        HorizontalAlignment="Center"/>
+                <ComboBox HorizontalAlignment="Center"
+                        Margin="0,0,0,-10">
+                    
+                </ComboBox>
 
-                <Button Content="Move"
-                        HorizontalAlignment="Center"/>
+                <ComboBox HorizontalAlignment="Center"
+                        Margin="0,0,0,-10">
+                    
+                </ComboBox>
 
-                <Button Content="Move"
-                        HorizontalAlignment="Center"/>
+                <ComboBox HorizontalAlignment="Center">
+                    
+                </ComboBox>
 
-                <Button Content="Move"
-                        HorizontalAlignment="Center"/>
+                <TextBlock Text="Edit Stats:"
+                            HorizontalAlignment="Center"
+                            Margin="0,0,0,20"/>
+
+                <Grid ColumnDefinitions="Auto,Auto,Auto,Auto"
+                        HorizontalAlignment="Center"
+                        ColumnSpacing="10"
+                        Margin="-15,0,0,0">
+
+                        <!-- Info Column -->
+                        <StackPanel Grid.Column="0"
+                                Spacing="15"
+                                Margin="0,2,0,0">
+
+                                <TextBlock Text=""
+                                        HorizontalAlignment="Right"/>
+                                
+                                <TextBlock Text="HP"
+                                        HorizontalAlignment="Right"/>
+
+                                <TextBlock Text="Atk"
+                                        HorizontalAlignment="Right"/>
+
+                                <TextBlock Text="Def"
+                                        HorizontalAlignment="Right"/>
+
+                                <TextBlock Text="SpAtk"
+                                        HorizontalAlignment="Right"/>
+
+                                <TextBlock Text="SpDef"
+                                        HorizontalAlignment="Right"/>
+
+                                <TextBlock Text="Speed"
+                                        HorizontalAlignment="Right"/>
+                        
+                        </StackPanel>
+
+                        <!-- IV Column -->
+                        <StackPanel Grid.Column="1"
+                                Spacing="0">
+
+                                <TextBlock Text="IVs"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,5,0,5"/>
+                                
+                                <!-- HP -->
+                                <TextBox x:Name="HpIVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="31"
+                                                FontSize="16"
+                                                MaxLength="2"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="40"/>
+
+                                <!-- Atk -->
+                                <TextBox x:Name="AtkIVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="31"
+                                                FontSize="16"
+                                                MaxLength="2"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="40"/>
+
+                                <!-- Def -->
+                                <TextBox x:Name="DefIVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="31"
+                                                FontSize="16"
+                                                MaxLength="2"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="40"/>
+
+                                <!-- SpAtk -->
+                                <TextBox x:Name="SpAtkIVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="31"
+                                                FontSize="16"
+                                                MaxLength="2"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="40"/>
+
+                                <!-- SpDef -->
+                                <TextBox x:Name="SpDefIVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="31"
+                                                FontSize="16"
+                                                MaxLength="2"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="40"/>
+
+                                <!-- Speed -->
+                                <TextBox x:Name="SpeedIVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="31"
+                                                FontSize="16"
+                                                MaxLength="2"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="40"/>
+                                
+                        </StackPanel>
+
+                        <!-- EV Column -->
+                        <StackPanel Grid.Column="2"
+                                Spacing="0">
+
+                                <TextBlock Text="EVs"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,5,0,5"/>
+                                
+                                <!-- HP -->
+                                <TextBox x:Name="HpEVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="0"
+                                                FontSize="16"
+                                                MaxLength="3"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="52"/>
+
+                                <!-- Atk -->
+                                <TextBox x:Name="AtkEVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="0"
+                                                FontSize="16"
+                                                MaxLength="3"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="52"/>
+
+                                <!-- Def -->
+                                <TextBox x:Name="DefEVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="0"
+                                                FontSize="16"
+                                                MaxLength="3"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="52"/>
+
+                                <!-- SpAtk -->
+                                <TextBox x:Name="SpAtkEVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="0"
+                                                FontSize="16"
+                                                MaxLength="3"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="52"/>
+
+                                <!-- SpDef -->
+                                <TextBox x:Name="SpDefEVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="0"
+                                                FontSize="16"
+                                                MaxLength="3"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="52"/>
+
+                                <!-- Speed -->
+                                <TextBox x:Name="SpeedEVTextBox"
+                                                HorizontalAlignment="Center"
+                                                Grid.Column="1"
+                                                Text="0"
+                                                FontSize="16"
+                                                MaxLength="3"
+                                                MaxLines="1"
+                                                Height="30"
+                                                MinWidth="0"
+                                                Width="52"/>
+                                
+                        </StackPanel>
+
+                        <!-- Base Stat Column -->
+                        <StackPanel Grid.Column="3"
+                                Spacing="15"
+                                Margin="0,2,0,0">
+
+                                <TextBlock Text="Base"
+                                        HorizontalAlignment="Center"/>
+                                
+                                <TextBlock x:Name="BaseHPText"
+                                        Text="-"
+                                        HorizontalAlignment="Center"/>
+
+                                <TextBlock x:Name="BaseAtkText"
+                                        Text="-"
+                                        HorizontalAlignment="Center"/>
+
+                                <TextBlock x:Name="BaseDefText"
+                                        Text="-"
+                                        HorizontalAlignment="Center"/>
+
+                                <TextBlock x:Name="BaseSpAtkText"
+                                        Text="-"
+                                        HorizontalAlignment="Center"/>
+
+                                <TextBlock x:Name="BaseSpDefText"
+                                        Text="-"
+                                        HorizontalAlignment="Center"/>
+
+                                <TextBlock x:Name="BaseSpeedText"
+                                        Text="-"
+                                        HorizontalAlignment="Center"/>
+                        
+                        </StackPanel>
+                </Grid>
 
             </StackPanel>
 
             <!-- Damage -->
             <StackPanel Grid.Column="1" 
-                        HorizontalAlignment="Center">
+                        HorizontalAlignment="Center"
+                        Spacing="10">
 
                 <TextBlock Text="Selected Move Damage"
                             FontSize="24"
@@ -48,12 +320,14 @@
                 <TextBlock Text="(Select a move first)"
                             FontSize="16"
                             HorizontalAlignment="Center"/>
+                <!-- There will be multiple numbers displayed because pokemon move damage is randomized to 16 possible values -->
 
             </StackPanel>
 
             <!-- Pokemon2 -->
             <StackPanel Grid.Column="2" 
-                        HorizontalAlignment="Center">
+                        HorizontalAlignment="Center"
+                        Spacing="10">
 
                 <TextBlock Text="Pokemon 2"
                             FontSize="32"
@@ -64,16 +338,48 @@
                 </ComboBox>
 
                 <Button Content="Move"
-                        HorizontalAlignment="Center"/>
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,-10"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,-10"/>
+
+                <Button Content="Move"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,-10"/>
 
                 <Button Content="Move"
                         HorizontalAlignment="Center"/>
 
-                <Button Content="Move"
-                        HorizontalAlignment="Center"/>
+                <TextBlock Text="Edit Moves:"
+                            HorizontalAlignment="Center"/>
+                
+                <!-- Move choices -->
+                <ComboBox HorizontalAlignment="Center"
+                        Margin="0,0,0,-10">
+                    
+                </ComboBox>
 
-                <Button Content="Move"
-                        HorizontalAlignment="Center"/>
+                <ComboBox HorizontalAlignment="Center"
+                        Margin="0,0,0,-10">
+                    
+                </ComboBox>
+
+                <ComboBox HorizontalAlignment="Center"
+                        Margin="0,0,0,-10">
+                    
+                </ComboBox>
+
+                <ComboBox HorizontalAlignment="Center">
+                    
+                </ComboBox>
+
+                <TextBlock Text="Edit Stats:"
+                            HorizontalAlignment="Center"/>
+
+                <!-- IV, EV and stat boost editing to be added -->
+
 
             </StackPanel>
         </Grid>

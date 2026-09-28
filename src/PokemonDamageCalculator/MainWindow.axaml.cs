@@ -1,6 +1,8 @@
 using Avalonia.Controls;
+using Avalonia.Metadata;
 using PokemonDamageCalculator.Models;
 using System;
+using System.Collections.Generic;
 
 namespace PokemonDamageCalculator;
 
@@ -9,6 +11,32 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+
+        Pokemon Garchomp = new("Garchomp", new Stats(108, 130, 95, 80, 85, 102), PokemonType.Dragon, PokemonType.Ground);
+        Pokemon Aggron = new("Aggron", new Stats(70, 110, 180, 60, 60, 50), PokemonType.Steel, PokemonType.Rock);
+
+        Pokemon1acb.ItemsSource = new List<Pokemon>
+        {
+            Garchomp,
+            Aggron
+        };
+
+        //Listen for item being selected from dropdown
+        Pokemon1acb.SelectionChanged += Pokemon1acb_SelectionChanged;
+    }
+
+    private void Pokemon1acb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        if(Pokemon1acb.SelectedItem is Pokemon selectedPokemon)
+        {
+            BaseHPText.Text = selectedPokemon.BaseStats.HP.ToString();
+            BaseAtkText.Text = selectedPokemon.BaseStats.Atk.ToString();
+            BaseDefText.Text = selectedPokemon.BaseStats.Def.ToString();
+            BaseSpAtkText.Text = selectedPokemon.BaseStats.SpAtk.ToString();
+            BaseSpDefText.Text = selectedPokemon.BaseStats.SpDef.ToString();
+            BaseSpeedText.Text = selectedPokemon.BaseStats.Speed.ToString();
+        }
+    }
 
         //Commented code below is for testing. Will be removed later
 
@@ -89,7 +117,7 @@ public partial class MainWindow : Window
         eqdmg = DamageCalculator.calcDamage(Garchomp, Aggron, Quake, BattleState);
         Console.WriteLine("Earthquake Damage: " + eqdmg);
         */
-    }
+    
 }
 
 /*
