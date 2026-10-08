@@ -94,6 +94,7 @@ public partial class MainWindow : Window
         }
     }
 
+    //_________________________________________________________________________________________________________________________________________________________________________________________
     //Change IVs
     private void HpIVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
@@ -275,6 +276,7 @@ public partial class MainWindow : Window
         pokemon1.changeSpeedIV(correctedIV);
     }
 
+    //_________________________________________________________________________________________________________________________________________________________________________________________
     //Change EVs
     private void HpEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
@@ -308,6 +310,7 @@ public partial class MainWindow : Window
 
         HpEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
         pokemon1.changeHPEV(correctedEV);
+        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
     }
 
     private void AtkEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
@@ -342,6 +345,7 @@ public partial class MainWindow : Window
 
         AtkEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
         pokemon1.changeAtkEV(correctedEV);
+        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
     }
 
     private void DefEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
@@ -376,6 +380,7 @@ public partial class MainWindow : Window
 
         DefEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
         pokemon1.changeDefEV(correctedEV);
+        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
     }
 
     private void SpAtkEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
@@ -410,6 +415,7 @@ public partial class MainWindow : Window
 
         SpAtkEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
         pokemon1.changeSpAtkEV(correctedEV);
+        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
     }
 
     private void SpDefEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
@@ -444,6 +450,7 @@ public partial class MainWindow : Window
 
         SpDefEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
         pokemon1.changeSpDefEV(correctedEV);
+        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
     }
 
     private void SpeedEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
@@ -478,6 +485,7 @@ public partial class MainWindow : Window
 
         SpeedEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
         pokemon1.changeSpeedEV(correctedEV);
+        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
     }
 
     //Pokemon 2 Function

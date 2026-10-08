@@ -29,19 +29,19 @@
                                 PlaceholderText="Search Pokemon...">
                 </AutoCompleteBox>
 
-                <Button Content="Move"
+                <Button Content="Move 1"
                         HorizontalAlignment="Center"
                         Margin="0,0,0,-10"/>
 
-                <Button Content="Move"
+                <Button Content="Move 2"
                         HorizontalAlignment="Center"
                         Margin="0,0,0,-10"/>
 
-                <Button Content="Move"
+                <Button Content="Move 3"
                         HorizontalAlignment="Center"
                         Margin="0,0,0,-10"/>
 
-                <Button Content="Move"
+                <Button Content="Move 4"
                         HorizontalAlignment="Center"/>
 
                 <TextBlock Text="Edit Moves:"
@@ -265,6 +265,12 @@
                                                 Height="30"
                                                 MinWidth="0"
                                                 Width="52"/>
+
+                                <!-- Display total EVs -->
+                                <TextBlock x:Name="EVDisplay1"
+                                                HorizontalAlignment="Center"
+                                                Text="0/510"
+                                                FontSize="13"/>
                                 
                         </StackPanel>
 
