@@ -29,43 +29,64 @@
                                 PlaceholderText="Search Pokemon...">
                 </AutoCompleteBox>
 
-                <Button Content="Move 1"
+                <Button x:Name="P1move1button"
+                        Content="Move 1"
                         HorizontalAlignment="Center"
                         Margin="0,0,0,-10"/>
 
-                <Button Content="Move 2"
+                <Button x:Name="P1move2button"
+                        Content="Move 2"
                         HorizontalAlignment="Center"
                         Margin="0,0,0,-10"/>
 
-                <Button Content="Move 3"
+                <Button x:Name="P1move3button"
+                        Content="Move 3"
                         HorizontalAlignment="Center"
                         Margin="0,0,0,-10"/>
 
-                <Button Content="Move 4"
+                <Button x:Name="P1move4button"
+                        Content="Move 4"
                         HorizontalAlignment="Center"/>
 
                 <TextBlock Text="Edit Moves:"
                             HorizontalAlignment="Center"/>
                 
-                <!-- Move choices -->
-                <ComboBox HorizontalAlignment="Center"
-                        Margin="0,0,0,-10">
-                    
-                </ComboBox>
+                <!-- Move Selection -->
+                <AutoCompleteBox x:Name="P1move1acb"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,-10"
+                                ValueMemberBinding="{ReflectionBinding Name}"
+                                FilterMode="Contains"
+                                MinimumPrefixLength="1"
+                                PlaceholderText="Search Moves...">
+                </AutoCompleteBox>
 
-                <ComboBox HorizontalAlignment="Center"
-                        Margin="0,0,0,-10">
-                    
-                </ComboBox>
+                <AutoCompleteBox x:Name="P1move2acb"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,-10"
+                                ValueMemberBinding="{ReflectionBinding Name}"
+                                FilterMode="Contains"
+                                MinimumPrefixLength="1"
+                                PlaceholderText="Search Moves...">
+                </AutoCompleteBox>
 
-                <ComboBox HorizontalAlignment="Center"
-                        Margin="0,0,0,-10">
-                    
-                </ComboBox>
+                <AutoCompleteBox x:Name="P1move3acb"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,-10"
+                                ValueMemberBinding="{ReflectionBinding Name}"
+                                FilterMode="Contains"
+                                MinimumPrefixLength="1"
+                                PlaceholderText="Search Moves...">
+                </AutoCompleteBox>
 
-                <ComboBox HorizontalAlignment="Center">
-                    
-                </ComboBox>
+                <AutoCompleteBox x:Name="P1move4acb"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,20"
+                                ValueMemberBinding="{ReflectionBinding Name}"
+                                FilterMode="Contains"
+                                MinimumPrefixLength="1"
+                                PlaceholderText="Search Moves...">
+                </AutoCompleteBox>
 
                 <TextBlock Text="Edit Stats:"
                             HorizontalAlignment="Center"

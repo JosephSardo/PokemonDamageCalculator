@@ -8,10 +8,21 @@ namespace PokemonDamageCalculator;
 
 public partial class MainWindow : Window
 {
-    private Pokemon? pokemon1;
-    private Pokemon? pokemon2;
-    private Move? selectedMove;
-    private BattleState? battleState;
+    private Pokemon? Pokemon1;
+    private Move? P1move1;
+    private Move? P1move2;
+    private Move? P1move3;
+    private Move? P1move4;
+
+    private Pokemon? Pokemon2;
+    private Move? P2move1;
+    private Move? P2move2;
+    private Move? P2move3;
+    private Move? P2move4;
+
+
+    private Move? SelectedMove;
+    private BattleState? BattleState;
 
     public MainWindow()
     {
@@ -20,15 +31,38 @@ public partial class MainWindow : Window
         Pokemon Garchomp = new("Garchomp", new Stats(108, 130, 95, 80, 85, 102), PokemonType.Dragon, PokemonType.Ground);
         Pokemon Aggron = new("Aggron", new Stats(70, 110, 180, 60, 60, 50), PokemonType.Steel, PokemonType.Rock);
 
+        Move FireFang = new("Fire Fang", 65, 100, PokemonType.Fire, MoveCategory.Physical);
+        Move BrickBreak = new("Brick Break", 75, 100, PokemonType.Fighting, MoveCategory.Physical);
+        Move DragonClaw = new("Dragon Claw", 80, 100, PokemonType.Dragon, MoveCategory.Physical);
+        Move Quake = new("Earthquake", 100, 100, PokemonType.Ground, MoveCategory.Physical);
+
+        //Temporary: hardcoding list of pokemon/moves for testing
         Pokemon1acb.ItemsSource = new List<Pokemon>
         {
             Garchomp,
             Aggron
         };
 
+        P1move1acb.ItemsSource = new List<Move>
+        {
+            FireFang,
+            BrickBreak,
+            DragonClaw,
+            Quake
+        };
+
+        P1move2acb.ItemsSource = P1move1acb.ItemsSource;
+        P1move3acb.ItemsSource = P1move1acb.ItemsSource;
+        P1move4acb.ItemsSource = P1move1acb.ItemsSource;
+
         //Listen for items being changed
         //Pokemon 1
         Pokemon1acb.SelectionChanged += Pokemon1acb_SelectionChanged;
+
+        P1move1acb.SelectionChanged += P1move1acb_SelectionChanged;
+        P1move2acb.SelectionChanged += P1move2acb_SelectionChanged;
+        P1move3acb.SelectionChanged += P1move3acb_SelectionChanged;
+        P1move4acb.SelectionChanged += P1move4acb_SelectionChanged;
 
         HpIVTextBox1.TextChanged += HpIVTextBox1_TextChanged;
         AtkIVTextBox1.TextChanged += AtkIVTextBox1_TextChanged;
@@ -69,7 +103,7 @@ public partial class MainWindow : Window
     {
         if(Pokemon1acb.SelectedItem is Pokemon selectedPokemon)
         {
-            pokemon1 = selectedPokemon;
+            Pokemon1 = selectedPokemon;
 
             BaseHPText1.Text = selectedPokemon.BaseStats.HP.ToString();
             BaseAtkText1.Text = selectedPokemon.BaseStats.Atk.ToString();
@@ -78,6 +112,7 @@ public partial class MainWindow : Window
             BaseSpDefText1.Text = selectedPokemon.BaseStats.SpDef.ToString();
             BaseSpeedText1.Text = selectedPokemon.BaseStats.Speed.ToString();
 
+            //Reset stats
             HpIVTextBox1.Text = "31";
             AtkIVTextBox1.Text = "31";
             DefIVTextBox1.Text = "31";
@@ -91,6 +126,76 @@ public partial class MainWindow : Window
             SpAtkEVTextBox1.Text = "0";
             SpDefEVTextBox1.Text = "0";
             SpeedEVTextBox1.Text = "0";
+
+            //Reset moves
+            P1move1acb.Text = String.Empty;
+            P1move1acb.SelectedItem = null;
+
+            P1move2acb.Text = String.Empty;
+            P1move2acb.SelectedItem = null;
+
+            P1move3acb.Text = String.Empty;
+            P1move3acb.SelectedItem = null;
+
+            P1move4acb.Text = String.Empty;
+            P1move4acb.SelectedItem = null;
+        }
+    }
+    //_________________________________________________________________________________________________________________________________________________________________________________________
+    //Move selection
+    private void P1move1acb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        if(P1move1acb.SelectedItem == null)
+        {
+            P1move1button.Content = "Move 1";
+        }
+
+        if(P1move1acb.SelectedItem is Move selectedMove)
+        {
+            P1move1 = selectedMove;
+            P1move1button.Content = P1move1.Name;
+        }
+    }
+
+    private void P1move2acb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        if(P1move2acb.SelectedItem == null)
+        {
+            P1move2button.Content = "Move 1";
+        }
+
+        if(P1move2acb.SelectedItem is Move selectedMove)
+        {
+            P1move2 = selectedMove;
+            P1move2button.Content = P1move2.Name;
+        }
+    }
+
+    private void P1move3acb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        if(P1move3acb.SelectedItem == null)
+        {
+            P1move3button.Content = "Move 1";
+        }
+
+        if(P1move3acb.SelectedItem is Move selectedMove)
+        {
+            P1move3 = selectedMove;
+            P1move3button.Content = P1move3.Name;
+        }
+    }
+
+    private void P1move4acb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        if(P1move4acb.SelectedItem == null)
+        {
+            P1move4button.Content = "Move 1";
+        }
+
+        if(P1move4acb.SelectedItem is Move selectedMove)
+        {
+            P1move4 = selectedMove;
+            P1move4button.Content = P1move4.Name;
         }
     }
 
@@ -98,7 +203,7 @@ public partial class MainWindow : Window
     //Change IVs
     private void HpIVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || HpIVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || HpIVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -110,7 +215,7 @@ public partial class MainWindow : Window
                 HpIVTextBox1.Text = "";
                 return;
             }
-            HpIVTextBox1.Text = pokemon1.IVs.HP.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
+            HpIVTextBox1.Text = Pokemon1.IVs.HP.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
             return;
         }
 
@@ -123,12 +228,12 @@ public partial class MainWindow : Window
         }
 
         HpIVTextBox1.Text = correctedIV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeHPIV(correctedIV);
+        Pokemon1.changeHPIV(correctedIV);
     }
 
     private void AtkIVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || AtkIVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || AtkIVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -140,7 +245,7 @@ public partial class MainWindow : Window
                 AtkIVTextBox1.Text = "";
                 return;
             }
-            AtkIVTextBox1.Text = pokemon1.IVs.Atk.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
+            AtkIVTextBox1.Text = Pokemon1.IVs.Atk.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
             return;
         }
 
@@ -153,12 +258,12 @@ public partial class MainWindow : Window
         }
 
         AtkIVTextBox1.Text = correctedIV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeAtkIV(correctedIV);
+        Pokemon1.changeAtkIV(correctedIV);
     }
 
     private void DefIVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || DefIVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || DefIVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -170,7 +275,7 @@ public partial class MainWindow : Window
                 DefIVTextBox1.Text = "";
                 return;
             }
-            DefIVTextBox1.Text = pokemon1.IVs.Def.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
+            DefIVTextBox1.Text = Pokemon1.IVs.Def.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
             return;
         }
 
@@ -183,12 +288,12 @@ public partial class MainWindow : Window
         }
 
         DefIVTextBox1.Text = correctedIV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeDefIV(correctedIV);
+        Pokemon1.changeDefIV(correctedIV);
     }
 
     private void SpAtkIVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || SpAtkIVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || SpAtkIVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -200,7 +305,7 @@ public partial class MainWindow : Window
                 SpAtkIVTextBox1.Text = "";
                 return;
             }
-            SpAtkIVTextBox1.Text = pokemon1.IVs.SpAtk.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
+            SpAtkIVTextBox1.Text = Pokemon1.IVs.SpAtk.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
             return;
         }
 
@@ -213,12 +318,12 @@ public partial class MainWindow : Window
         }
 
         SpAtkIVTextBox1.Text = correctedIV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeSpAtkIV(correctedIV);
+        Pokemon1.changeSpAtkIV(correctedIV);
     }
 
     private void SpDefIVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || SpDefIVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || SpDefIVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -230,7 +335,7 @@ public partial class MainWindow : Window
                 SpDefIVTextBox1.Text = "";
                 return;
             }
-            SpDefIVTextBox1.Text = pokemon1.IVs.SpDef.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
+            SpDefIVTextBox1.Text = Pokemon1.IVs.SpDef.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
             return;
         }
 
@@ -243,12 +348,12 @@ public partial class MainWindow : Window
         }
 
         SpDefIVTextBox1.Text = correctedIV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeSpDefIV(correctedIV);
+        Pokemon1.changeSpDefIV(correctedIV);
     }
 
     private void SpeedIVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || SpeedIVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || SpeedIVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -260,7 +365,7 @@ public partial class MainWindow : Window
                 SpeedIVTextBox1.Text = "";
                 return;
             }
-            SpeedIVTextBox1.Text = pokemon1.IVs.Speed.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
+            SpeedIVTextBox1.Text = Pokemon1.IVs.Speed.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same IV remains displayed
             return;
         }
 
@@ -273,14 +378,14 @@ public partial class MainWindow : Window
         }
 
         SpeedIVTextBox1.Text = correctedIV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeSpeedIV(correctedIV);
+        Pokemon1.changeSpeedIV(correctedIV);
     }
 
     //_________________________________________________________________________________________________________________________________________________________________________________________
     //Change EVs
     private void HpEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || HpEVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || HpEVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -292,14 +397,14 @@ public partial class MainWindow : Window
                 HpEVTextBox1.Text = "";
                 return;
             }
-            HpEVTextBox1.Text = pokemon1.EVs.HP.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
+            HpEVTextBox1.Text = Pokemon1.EVs.HP.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
             return;
         }
 
         int correctedEV = Math.Clamp(EV, 0, 252); //ensure input is within valid range
-        if(pokemon1.calcEVTotal() - pokemon1.EVs.HP + correctedEV > 510) //check if the change puts the EV total over the 510 limit
+        if(Pokemon1.calcEVTotal() - Pokemon1.EVs.HP + correctedEV > 510) //check if the change puts the EV total over the 510 limit
         {
-            correctedEV = 510 - (pokemon1.calcEVTotal() - pokemon1.EVs.HP); //cap the input to enforce 510 limit
+            correctedEV = 510 - (Pokemon1.calcEVTotal() - Pokemon1.EVs.HP); //cap the input to enforce 510 limit
         }
 
         if(EV != correctedEV) //if input wasn't in valid range, correct the textbox
@@ -309,13 +414,13 @@ public partial class MainWindow : Window
         }
 
         HpEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeHPEV(correctedEV);
-        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
+        Pokemon1.changeHPEV(correctedEV);
+        EVDisplay1.Text = Pokemon1.calcEVTotal() + "/510";
     }
 
     private void AtkEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || AtkEVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || AtkEVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -327,14 +432,14 @@ public partial class MainWindow : Window
                 AtkEVTextBox1.Text = "";
                 return;
             }
-            AtkEVTextBox1.Text = pokemon1.EVs.Atk.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
+            AtkEVTextBox1.Text = Pokemon1.EVs.Atk.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
             return;
         }
 
         int correctedEV = Math.Clamp(EV, 0, 252); //ensure input is within valid range
-        if(pokemon1.calcEVTotal() - pokemon1.EVs.Atk + correctedEV > 510) //check if the change puts the EV total over the 510 limit
+        if(Pokemon1.calcEVTotal() - Pokemon1.EVs.Atk + correctedEV > 510) //check if the change puts the EV total over the 510 limit
         {
-            correctedEV = 510 - (pokemon1.calcEVTotal() - pokemon1.EVs.Atk); //cap the input to enforce 510 limit
+            correctedEV = 510 - (Pokemon1.calcEVTotal() - Pokemon1.EVs.Atk); //cap the input to enforce 510 limit
         }
 
         if(EV != correctedEV) //if input wasn't in valid range, correct the textbox
@@ -344,13 +449,13 @@ public partial class MainWindow : Window
         }
 
         AtkEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeAtkEV(correctedEV);
-        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
+        Pokemon1.changeAtkEV(correctedEV);
+        EVDisplay1.Text = Pokemon1.calcEVTotal() + "/510";
     }
 
     private void DefEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || DefEVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || DefEVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -362,14 +467,14 @@ public partial class MainWindow : Window
                 DefEVTextBox1.Text = "";
                 return;
             }
-            DefEVTextBox1.Text = pokemon1.EVs.Def.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
+            DefEVTextBox1.Text = Pokemon1.EVs.Def.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
             return;
         }
 
         int correctedEV = Math.Clamp(EV, 0, 252); //ensure input is within valid range
-        if(pokemon1.calcEVTotal() - pokemon1.EVs.Def + correctedEV > 510) //check if the change puts the EV total over the 510 limit
+        if(Pokemon1.calcEVTotal() - Pokemon1.EVs.Def + correctedEV > 510) //check if the change puts the EV total over the 510 limit
         {
-            correctedEV = 510 - (pokemon1.calcEVTotal() - pokemon1.EVs.Def); //cap the input to enforce 510 limit
+            correctedEV = 510 - (Pokemon1.calcEVTotal() - Pokemon1.EVs.Def); //cap the input to enforce 510 limit
         }
 
         if(EV != correctedEV) //if input wasn't in valid range, correct the textbox
@@ -379,13 +484,13 @@ public partial class MainWindow : Window
         }
 
         DefEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeDefEV(correctedEV);
-        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
+        Pokemon1.changeDefEV(correctedEV);
+        EVDisplay1.Text = Pokemon1.calcEVTotal() + "/510";
     }
 
     private void SpAtkEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-       if(pokemon1 == null || SpAtkEVTextBox1.Text == "") //ensure a pokemon is selected
+       if(Pokemon1 == null || SpAtkEVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -397,14 +502,14 @@ public partial class MainWindow : Window
                 SpAtkEVTextBox1.Text = "";
                 return;
             }
-            SpAtkEVTextBox1.Text = pokemon1.EVs.SpAtk.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
+            SpAtkEVTextBox1.Text = Pokemon1.EVs.SpAtk.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
             return;
         }
 
         int correctedEV = Math.Clamp(EV, 0, 252); //ensure input is within valid range
-        if(pokemon1.calcEVTotal() - pokemon1.EVs.SpAtk + correctedEV > 510) //check if the change puts the EV total over the 510 limit
+        if(Pokemon1.calcEVTotal() - Pokemon1.EVs.SpAtk + correctedEV > 510) //check if the change puts the EV total over the 510 limit
         {
-            correctedEV = 510 - (pokemon1.calcEVTotal() - pokemon1.EVs.SpAtk); //cap the input to enforce 510 limit
+            correctedEV = 510 - (Pokemon1.calcEVTotal() - Pokemon1.EVs.SpAtk); //cap the input to enforce 510 limit
         }
 
         if(EV != correctedEV) //if input wasn't in valid range, correct the textbox
@@ -414,13 +519,13 @@ public partial class MainWindow : Window
         }
 
         SpAtkEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeSpAtkEV(correctedEV);
-        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
+        Pokemon1.changeSpAtkEV(correctedEV);
+        EVDisplay1.Text = Pokemon1.calcEVTotal() + "/510";
     }
 
     private void SpDefEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || SpDefEVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || SpDefEVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -432,14 +537,14 @@ public partial class MainWindow : Window
                 SpDefEVTextBox1.Text = "";
                 return;
             }
-            SpDefEVTextBox1.Text = pokemon1.EVs.SpDef.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
+            SpDefEVTextBox1.Text = Pokemon1.EVs.SpDef.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
             return;
         }
 
         int correctedEV = Math.Clamp(EV, 0, 252); //ensure input is within valid range
-        if(pokemon1.calcEVTotal() - pokemon1.EVs.SpDef + correctedEV > 510) //check if the change puts the EV total over the 510 limit
+        if(Pokemon1.calcEVTotal() - Pokemon1.EVs.SpDef + correctedEV > 510) //check if the change puts the EV total over the 510 limit
         {
-            correctedEV = 510 - (pokemon1.calcEVTotal() - pokemon1.EVs.SpDef); //cap the input to enforce 510 limit
+            correctedEV = 510 - (Pokemon1.calcEVTotal() - Pokemon1.EVs.SpDef); //cap the input to enforce 510 limit
         }
 
         if(EV != correctedEV) //if input wasn't in valid range, correct the textbox
@@ -449,13 +554,13 @@ public partial class MainWindow : Window
         }
 
         SpDefEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeSpDefEV(correctedEV);
-        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
+        Pokemon1.changeSpDefEV(correctedEV);
+        EVDisplay1.Text = Pokemon1.calcEVTotal() + "/510";
     }
 
     private void SpeedEVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        if(pokemon1 == null || SpeedEVTextBox1.Text == "") //ensure a pokemon is selected
+        if(Pokemon1 == null || SpeedEVTextBox1.Text == "") //ensure a pokemon is selected
         {
             return;
         }
@@ -467,14 +572,14 @@ public partial class MainWindow : Window
                 SpeedEVTextBox1.Text = "";
                 return;
             }
-            SpeedEVTextBox1.Text = pokemon1.EVs.Speed.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
+            SpeedEVTextBox1.Text = Pokemon1.EVs.Speed.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same EV remains displayed
             return;
         }
 
         int correctedEV = Math.Clamp(EV, 0, 252); //ensure input is within valid range
-        if(pokemon1.calcEVTotal() - pokemon1.EVs.Speed + correctedEV > 510) //check if the change puts the EV total over the 510 limit
+        if(Pokemon1.calcEVTotal() - Pokemon1.EVs.Speed + correctedEV > 510) //check if the change puts the EV total over the 510 limit
         {
-            correctedEV = 510 - (pokemon1.calcEVTotal() - pokemon1.EVs.Speed); //cap the input to enforce 510 limit
+            correctedEV = 510 - (Pokemon1.calcEVTotal() - Pokemon1.EVs.Speed); //cap the input to enforce 510 limit
         }
 
         if(EV != correctedEV) //if input wasn't in valid range, correct the textbox
@@ -484,8 +589,8 @@ public partial class MainWindow : Window
         }
 
         SpeedEVTextBox1.Text = correctedEV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
-        pokemon1.changeSpeedEV(correctedEV);
-        EVDisplay1.Text = pokemon1.calcEVTotal() + "/510";
+        Pokemon1.changeSpeedEV(correctedEV);
+        EVDisplay1.Text = Pokemon1.calcEVTotal() + "/510";
     }
 
     //Pokemon 2 Function
