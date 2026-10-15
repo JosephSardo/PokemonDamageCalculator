@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
+using PokemonDamageCalculator.Models;
 
 //service class to determine type matchups
 public static class TypeChart
@@ -200,5 +201,28 @@ public static class TypeChart
         }
 
         return 1.0; //if it's not in the hashmap, it's neutral
+    }
+
+    //returns a pokemon type as a string for display
+    public static string typeAsString(PokemonType type) 
+    {
+        if(type == PokemonType.Normal) return "Normal";
+        if(type == PokemonType.Fire) return "Fire";
+        if(type == PokemonType.Water) return "Water";
+        if(type == PokemonType.Electric) return "Electric";
+        if(type == PokemonType.Grass) return "Grass";
+        if(type == PokemonType.Ice) return "Ice";
+        if(type == PokemonType.Fighting) return "Fighting";
+        if(type == PokemonType.Poison) return "Poison";
+        if(type == PokemonType.Ground) return "Ground";
+        if(type == PokemonType.Flying) return "Flying";
+        if(type == PokemonType.Psychic) return "Psychic";
+        if(type == PokemonType.Bug) return "Bug";
+        if(type == PokemonType.Rock) return "Rock";
+        if(type == PokemonType.Ghost) return "Ghost";
+        if(type == PokemonType.Dragon) return "Dragon";
+        if(type == PokemonType.Dark) return "Dark";
+        if(type == PokemonType.Steel) return "Steel";
+        return "Fairy";
     }
 }
