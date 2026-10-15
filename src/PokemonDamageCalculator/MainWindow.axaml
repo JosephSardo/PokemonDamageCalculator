@@ -433,6 +433,99 @@
                         </StackPanel>
                 </Grid>
 
+                <TextBlock Text="Other"
+                            HorizontalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="Bold"/>
+
+                <Grid ColumnDefinitions="*,2*">
+
+                        <!-- Stackpanel with labels for autocompleteboxes-->
+                        <StackPanel Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Spacing="15"
+                                Margin="0,6,10,0">
+                                
+                                <TextBlock Text="Nature"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"/>
+
+                                <TextBlock Text="Ability"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"/>
+                                
+                                <TextBlock Text="Held Item"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"/>
+
+                                <TextBlock Text="Status"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"/>
+
+                                <TextBlock Text="Gender"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"/>
+                        </StackPanel>
+
+                        <!-- Stackpanel with autocompleteboxes-->
+                        <StackPanel Grid.Column="1"
+                                HorizontalAlignment="Left">
+                                
+                                <!-- Nature selection -->
+                                <AutoCompleteBox x:Name="Nature1acb"
+                                                HorizontalAlignment="Center"
+                                                ValueMemberBinding="{ReflectionBinding Name}"
+                                                FilterMode="Contains"
+                                                MinimumPrefixLength="1"
+                                                PlaceholderText="Search..."
+                                                MinWidth="125"
+                                                MaxWidth="125">
+                                </AutoCompleteBox>
+
+                                <!-- Ability selection -->
+                                <AutoCompleteBox x:Name="Ability1acb"
+                                                HorizontalAlignment="Center"
+                                                ValueMemberBinding="{ReflectionBinding Name}"
+                                                FilterMode="Contains"
+                                                MinimumPrefixLength="1"
+                                                PlaceholderText="Search..."
+                                                MinWidth="125"
+                                                MaxWidth="125">
+                                </AutoCompleteBox>
+
+                                <!-- Held item selection -->
+                                <AutoCompleteBox x:Name="Item1acb"
+                                                HorizontalAlignment="Center"
+                                                ValueMemberBinding="{ReflectionBinding Name}"
+                                                FilterMode="Contains"
+                                                MinimumPrefixLength="1"
+                                                PlaceholderText="Search..."
+                                                MinWidth="125"
+                                                MaxWidth="125">
+                                </AutoCompleteBox>
+
+                                <!-- Status selection -->
+                                <AutoCompleteBox x:Name="Status1acb"
+                                                HorizontalAlignment="Center"
+                                                ValueMemberBinding="{ReflectionBinding Name}"
+                                                FilterMode="Contains"
+                                                MinimumPrefixLength="1"
+                                                PlaceholderText="Search..."
+                                                MinWidth="125"
+                                                MaxWidth="125">
+                                </AutoCompleteBox>
+
+                                <!-- Gender selection -->
+                                <ComboBox x:Name="Gender1cb"
+                                        HorizontalAlignment="Center"
+                                        PlaceholderText="Select"
+                                        MinWidth="125"
+                                        MaxWidth="125">
+                                </ComboBox>
+
+                        </StackPanel>
+                </Grid>
+
             </StackPanel>
 
             <!-- Damage -->

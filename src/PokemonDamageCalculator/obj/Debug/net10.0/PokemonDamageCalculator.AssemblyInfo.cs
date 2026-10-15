@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PokemonDamageCalculator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+525d10b71690738faf2b8a20bfe62840713f5541")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+652e33fa1b9ac014b479ce1ddb7cab36f74c8fce")]
 [assembly: System.Reflection.AssemblyProductAttribute("PokemonDamageCalculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PokemonDamageCalculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
