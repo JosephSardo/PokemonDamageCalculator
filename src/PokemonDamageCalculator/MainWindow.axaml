@@ -5,8 +5,8 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="PokemonDamageCalculator.MainWindow"
         Title="PokemonDamageCalculator"
-        Width="900"
-        Height="900"
+        Width="1100"
+        Height="1100"
         CanResize="False">
 
         <Grid ColumnDefinitions="*,*,*">
@@ -18,7 +18,8 @@
 
                 <TextBlock Text="Pokemon 1"
                             FontSize="32"
-                            HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Center"
+                            FontWeight="Bold"/>
 
                 <!-- Choose Pokemon 1 -->
                 <AutoCompleteBox x:Name="Pokemon1acb"
@@ -30,28 +31,42 @@
                 </AutoCompleteBox>
 
                 <Button x:Name="P1move1button"
-                        Content="Move 1"
+                        Content="- Move 1 -"
                         HorizontalAlignment="Center"
-                        Margin="0,0,0,-10"/>
+                        HorizontalContentAlignment="Center"
+                        Margin="0,0,0,-10"
+                        MinWidth="125"
+                        MaxWidth="125"/>
 
                 <Button x:Name="P1move2button"
-                        Content="Move 2"
+                        Content="- Move 2 -"
                         HorizontalAlignment="Center"
-                        Margin="0,0,0,-10"/>
+                        HorizontalContentAlignment="Center"
+                        Margin="0,0,0,-10"
+                        MinWidth="125"
+                        MaxWidth="125"/>
 
                 <Button x:Name="P1move3button"
-                        Content="Move 3"
+                        Content="- Move 3 -"
                         HorizontalAlignment="Center"
-                        Margin="0,0,0,-10"/>
+                        HorizontalContentAlignment="Center"
+                        Margin="0,0,0,-10"
+                        MinWidth="125"
+                        MaxWidth="125"/>
 
                 <Button x:Name="P1move4button"
-                        Content="Move 4"
-                        HorizontalAlignment="Center"/>
+                        Content="- Move 4 -"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        MinWidth="125"
+                        MaxWidth="125"/>
 
-                <TextBlock Text="Edit Moves:"
-                            HorizontalAlignment="Center"/>
+                <TextBlock Text="Edit Moves"
+                            HorizontalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="Bold"/>
 
-                <Grid ColumnDefinitions="*,Auto">
+                <Grid ColumnDefinitions="*,2*">
                         <!-- Move Selection -->
                         <StackPanel Grid.Column="0"
                                         Spacing="10">
@@ -62,7 +77,9 @@
                                                 ValueMemberBinding="{ReflectionBinding Name}"
                                                 FilterMode="Contains"
                                                 MinimumPrefixLength="1"
-                                                PlaceholderText="Search Moves...">
+                                                PlaceholderText="Search Moves..."
+                                                MinWidth="125"
+                                                MaxWidth="125">
                                 </AutoCompleteBox>
 
                                 <AutoCompleteBox x:Name="P1move2acb"
@@ -71,7 +88,9 @@
                                                 ValueMemberBinding="{ReflectionBinding Name}"
                                                 FilterMode="Contains"
                                                 MinimumPrefixLength="1"
-                                                PlaceholderText="Search Moves...">
+                                                PlaceholderText="Search Moves..."
+                                                MinWidth="125"
+                                                MaxWidth="125">
                                 </AutoCompleteBox>
 
                                 <AutoCompleteBox x:Name="P1move3acb"
@@ -80,7 +99,9 @@
                                                 ValueMemberBinding="{ReflectionBinding Name}"
                                                 FilterMode="Contains"
                                                 MinimumPrefixLength="1"
-                                                PlaceholderText="Search Moves...">
+                                                PlaceholderText="Search Moves..."
+                                                MinWidth="125"
+                                                MaxWidth="125">
                                 </AutoCompleteBox>
 
                                 <AutoCompleteBox x:Name="P1move4acb"
@@ -88,7 +109,9 @@
                                                 ValueMemberBinding="{ReflectionBinding Name}"
                                                 FilterMode="Contains"
                                                 MinimumPrefixLength="1"
-                                                PlaceholderText="Search Moves...">
+                                                PlaceholderText="Search Moves..."
+                                                MinWidth="125"
+                                                MaxWidth="125">
                                 </AutoCompleteBox>
                         </StackPanel>
 
@@ -117,9 +140,36 @@
                         </StackPanel>
                 </Grid>
 
-                <TextBlock Text="Edit Stats:"
+                <TextBlock Text="Edit Stats"
                             HorizontalAlignment="Center"
-                            Margin="0,0,0,10"/>
+                            FontSize="20"
+                            FontWeight="Bold"/>
+
+                <!-- Pokemon level selection -->
+                <Grid ColumnDefinitions="*,*"
+                        HorizontalAlignment="Center"
+                        ColumnSpacing="10"
+                        Margin="-15,0,0,0">
+
+                        <TextBlock Grid.Column="0"
+                                        Text="Level:"
+                                        FontSize="14"
+                                        VerticalAlignment="Center"/>
+
+                        <!-- Create textbox (dont forget to add lostfocus)-->
+                        <TextBox x:Name="LevelTextBox1"
+                                LostFocus="LevelTextBox1_LostFocus"
+                                HorizontalAlignment="Center"
+                                Grid.Column="1"
+                                Text="50"
+                                FontSize="16"
+                                MaxLength="3"
+                                MaxLines="1"
+                                Height="30"
+                                MinWidth="0"
+                                Width="52"
+                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                </Grid>
 
                 <Grid ColumnDefinitions="Auto,Auto,Auto,Auto"
                         HorizontalAlignment="Center"
@@ -173,7 +223,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="40"/>
+                                                Width="40"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- Atk -->
                                 <TextBox x:Name="AtkIVTextBox1"
@@ -186,7 +237,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="40"/>
+                                                Width="40"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- Def -->
                                 <TextBox x:Name="DefIVTextBox1"
@@ -199,7 +251,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="40"/>
+                                                Width="40"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- SpAtk -->
                                 <TextBox x:Name="SpAtkIVTextBox1"
@@ -212,7 +265,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="40"/>
+                                                Width="40"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- SpDef -->
                                 <TextBox x:Name="SpDefIVTextBox1"
@@ -225,7 +279,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="40"/>
+                                                Width="40"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- Speed -->
                                 <TextBox x:Name="SpeedIVTextBox1"
@@ -238,7 +293,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="40"/>
+                                                Width="40"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
                                 
                         </StackPanel>
 
@@ -261,7 +317,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="52"/>
+                                                Width="52"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- Atk -->
                                 <TextBox x:Name="AtkEVTextBox1"
@@ -274,7 +331,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="52"/>
+                                                Width="52"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- Def -->
                                 <TextBox x:Name="DefEVTextBox1"
@@ -287,7 +345,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="52"/>
+                                                Width="52"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- SpAtk -->
                                 <TextBox x:Name="SpAtkEVTextBox1"
@@ -300,7 +359,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="52"/>
+                                                Width="52"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- SpDef -->
                                 <TextBox x:Name="SpDefEVTextBox1"
@@ -313,7 +373,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="52"/>
+                                                Width="52"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- Speed -->
                                 <TextBox x:Name="SpeedEVTextBox1"
@@ -326,7 +387,8 @@
                                                 MaxLines="1"
                                                 Height="30"
                                                 MinWidth="0"
-                                                Width="52"/>
+                                                Width="52"
+                                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
                                 <!-- Display total EVs -->
                                 <TextBlock x:Name="EVDisplay1"
@@ -380,7 +442,8 @@
 
                 <TextBlock Text="Selected Move Damage"
                             FontSize="24"
-                            HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Center"
+                            FontWeight="Bold"/>
                 
                 <TextBlock Text="(Select a move first)"
                             FontSize="16"
