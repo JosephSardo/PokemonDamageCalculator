@@ -474,7 +474,6 @@
                                 <!-- Nature selection -->
                                 <AutoCompleteBox x:Name="Nature1acb"
                                                 HorizontalAlignment="Center"
-                                                ValueMemberBinding="{ReflectionBinding Name}"
                                                 FilterMode="Contains"
                                                 MinimumPrefixLength="1"
                                                 PlaceholderText="Search..."
@@ -485,7 +484,6 @@
                                 <!-- Ability selection -->
                                 <AutoCompleteBox x:Name="Ability1acb"
                                                 HorizontalAlignment="Center"
-                                                ValueMemberBinding="{ReflectionBinding Name}"
                                                 FilterMode="Contains"
                                                 MinimumPrefixLength="1"
                                                 PlaceholderText="Search..."
@@ -496,7 +494,6 @@
                                 <!-- Held item selection -->
                                 <AutoCompleteBox x:Name="Item1acb"
                                                 HorizontalAlignment="Center"
-                                                ValueMemberBinding="{ReflectionBinding Name}"
                                                 FilterMode="Contains"
                                                 MinimumPrefixLength="1"
                                                 PlaceholderText="Search..."
@@ -507,7 +504,6 @@
                                 <!-- Status selection -->
                                 <AutoCompleteBox x:Name="Status1acb"
                                                 HorizontalAlignment="Center"
-                                                ValueMemberBinding="{ReflectionBinding Name}"
                                                 FilterMode="Contains"
                                                 MinimumPrefixLength="1"
                                                 PlaceholderText="Search..."
@@ -518,9 +514,13 @@
                                 <!-- Gender selection -->
                                 <ComboBox x:Name="Gender1cb"
                                         HorizontalAlignment="Center"
-                                        PlaceholderText="Select"
+                                        PlaceholderText="Select..."
                                         MinWidth="125"
                                         MaxWidth="125">
+
+                                        <ComboBoxItem Content="None"/>
+                                        <ComboBoxItem Content="Male"/>
+                                        <ComboBoxItem Content="Female"/>
                                 </ComboBox>
 
                         </StackPanel>

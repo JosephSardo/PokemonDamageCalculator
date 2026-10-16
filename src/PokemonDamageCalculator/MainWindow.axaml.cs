@@ -38,13 +38,14 @@ public partial class MainWindow : Window
         Move DragonClaw = new("Dragon Claw", 80, 100, PokemonType.Dragon, MoveCategory.Physical);
         Move Quake = new("Earthquake testtesttesttesttest", 100, 100, PokemonType.Ground, MoveCategory.Physical);
 
-        //Temporary: hardcoding list of pokemon/moves for testing
+        //Temporary: hardcoding list of pokemon for testing
         Pokemon1acb.ItemsSource = new List<Pokemon>
         {
             Garchomp,
             Aggron
         };
 
+        //Temporary: hardcoding list of moves for testing
         P1move1acb.ItemsSource = new List<Move>
         {
             FireFang,
@@ -56,6 +57,64 @@ public partial class MainWindow : Window
         P1move2acb.ItemsSource = P1move1acb.ItemsSource;
         P1move3acb.ItemsSource = P1move1acb.ItemsSource;
         P1move4acb.ItemsSource = P1move1acb.ItemsSource;
+
+        //Create list of natures for the autocompletebox
+        Nature1acb.ItemsSource = new List<Nature>
+        {
+            Nature.Hardy,      //-atk
+            Nature.Lonely,     //-def
+            Nature.Adamant,    //-spatk
+            Nature.Naughty,    //-spdef
+            Nature.Brave,      //-speed
+            //+def
+            Nature.Bold,
+            Nature.Docile,
+            Nature.Impish,
+            Nature.Lax,
+            Nature.Relaxed,
+            //+spatk
+            Nature.Modest,
+            Nature.Mild,
+            Nature.Bashful,
+            Nature.Rash,
+            Nature.Quiet,
+            //+spdef
+            Nature.Calm,
+            Nature.Gentle,
+            Nature.Careful,
+            Nature.Quirky,
+            Nature.Sassy,
+            //+speed
+            Nature.Timid,
+            Nature.Hasty,
+            Nature.Jolly,
+            Nature.Naive,
+            Nature.Serious
+        };
+
+        //Temporary: hardcoding list of abilities for the autocompletebox
+        Ability1acb.ItemsSource = new List<String>
+        {
+            "Rough Skin"
+        };
+
+        //Temporary: hardcoding list of held items for the autocompletebox
+        Item1acb.ItemsSource = new List<String>
+        {
+            "Life Orb"
+        };
+
+        //Create list of statuses for the autocompletebox
+        Status1acb.ItemsSource = new List<StatusCondition>
+        {
+            StatusCondition.Healthy,
+            StatusCondition.Burned,
+            StatusCondition.Paralyzed,
+            StatusCondition.Poisoned,
+            StatusCondition.BadlyPoisoned,
+            StatusCondition.Asleep,
+            StatusCondition.Frozen
+        };
 
         //Listen for items being changed
         //Pokemon 1
@@ -86,6 +145,12 @@ public partial class MainWindow : Window
         SpAtkEVTextBox1.TextChanged += SpAtkEVTextBox1_TextChanged;
         SpDefEVTextBox1.TextChanged += SpDefEVTextBox1_TextChanged;
         SpeedEVTextBox1.TextChanged += SpeedEVTextBox1_TextChanged;
+
+        //Misc selection
+        Nature1acb.SelectionChanged += Nature1acb_SelectionChanged;
+        Ability1acb.SelectionChanged += Ability1acb_SelectionChanged;
+        Item1acb.SelectionChanged += Item1acb_SelectionChanged;
+        Status1acb.SelectionChanged += Status1acb_SelectionChanged;
 
         //Pokemon 2
         /*Pokemon2acb.SelectionChanged += Pokemon2acb_SelectionChanged;

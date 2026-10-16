@@ -53,6 +53,13 @@ public partial class MainWindow
 
             P1move4acb.Text = String.Empty;
             P1move4acb.SelectedItem = null;
+
+            //Reset misc attributes
+            Nature1acb.SelectedItem = Nature.Serious;
+            Ability1acb.SelectedItem = Pokemon1.Ability; //LATER: Make the pokemon's ability default to its first valid ability upon the pokemon object's creation
+            Item1acb.SelectedItem = "None";
+            Status1acb.SelectedItem = "Healthy";
+            Gender1cb.SelectedItem = "None";
         }
     }
 
@@ -66,7 +73,7 @@ public partial class MainWindow
 
         if(!int.TryParse(LevelTextBox1.Text, out int lvl)) //ensure input is an integer
         {
-            if(LevelTextBox1.Text.Length == 1) //if we try and put a non-integer into an empty textbox, keep the textbox empty
+            if(LevelTextBox1.Text!.Length == 1) //if we try and put a non-integer into an empty textbox, keep the textbox empty
             {
                 LevelTextBox1.Text = "";
                 return;

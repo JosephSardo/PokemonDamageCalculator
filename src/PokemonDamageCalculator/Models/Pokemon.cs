@@ -13,9 +13,9 @@ public class Pokemon
     //general attributes
     public string Name {get; private set;} = "";
     public int Level {get; private set;}
-    //To be added: Gender (affects damage from pokemon with rivalry ability)
-    //To be added: Ability
-    //To be added: Held Item
+    public string Gender {get; set;} = "None";
+    public string Ability {get; set;} = "";
+    public string Item {get; set;} = "None";
 
     //stats
     public Stats BaseStats {get; private set;}
@@ -24,7 +24,7 @@ public class Pokemon
     public Stats FinalStats {get; private set;}
     public StatChanges StatChanges {get; set;}
 
-    //enums
+    //other
     public (PokemonType Type1, PokemonType? Type2) Types {get; private set;} //second type is nullable bc not all pokemon have 2 types
     public Nature Nature {get; private set;}
     public StatusCondition Status {get; set;}
@@ -42,7 +42,7 @@ public class Pokemon
         StatChanges = new StatChanges();
 
         Types = (type1, type2);
-        Status = StatusCondition.None;  //default no status
+        Status = StatusCondition.Healthy;  //default no status, aka healthy
     }
 
     //print IVs
