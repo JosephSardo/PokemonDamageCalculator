@@ -522,9 +522,128 @@
                                         <ComboBoxItem Content="Male"/>
                                         <ComboBoxItem Content="Female"/>
                                 </ComboBox>
-
                         </StackPanel>
                 </Grid>
+
+                <!-- Current HP Selection -->
+                <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center">
+                        <TextBlock Grid.Column="0"
+                                Text="Current HP:"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="0,0,10,0"/>
+
+                        <!-- textbox for editing EXACT current HP TODO: LostFocus="CurrentHPTextBox1_LostFocus" -->
+                        <TextBox x:Name="CurrentHPTextBox1"
+                                HorizontalAlignment="Center"
+                                Grid.Column="1"
+                                Text="0"
+                                FontSize="16"
+                                MaxLines="1"
+                                Height="30"
+                                MinWidth="0"
+                                Width="60"
+                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+
+                        <TextBlock Grid.Column="2"
+                                Text="/1 ("
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+
+                        <!-- textbox for editing PERCENT of current HP TODO: LostFocus="PercHPTextBox1_LostFocus" -->
+                        <TextBox x:Name="PercHPTextBox1"
+                                HorizontalAlignment="Center"
+                                Grid.Column="3"
+                                Text="0"
+                                FontSize="16"
+                                MaxLines="1"
+                                Height="30"
+                                MinWidth="0"
+                                Width="52"
+                                ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                        
+                        <TextBlock Grid.Column="4"
+                                Text="%)"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                </Grid>
+
+                <!-- Current HP Slider -->
+                <Slider x:Name="HpSlider1"
+                                Grid.Column="5"
+                                Minimum="0"
+                                Maximum="1"
+                                Value="1"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
+                                
+                        <Slider.Styles>
+                                <!-- slider dimensions -->
+                                <Style Selector="Slider:horizontal">
+                                        <Setter Property="MinWidth" Value="300"/>
+                                        <Setter Property="MaxWidth" Value="300"/>
+                                        <Setter Property="Background" Value="Red"/>
+                                        <Setter Property="Foreground" Value="Green"/>
+                                </Style>
+
+                                <!-- filled portion always green -->
+                                <Style Selector="Slider:horizontal /template/ RepeatButton#PART_DecreaseButton">
+                                        <Setter Property="Background" Value="Green"/>
+                                </Style>
+
+                                <!-- nfilled portion always red -->
+                                <Style Selector="Slider:horizontal /template/ RepeatButton#PART_IncreaseButton">
+                                        <Setter Property="Background" Value="Red"/>
+                                </Style>
+
+                                <!-- keep the filled portion green on hover -->
+                                <Style Selector="Slider:horizontal:pointerover /template/ RepeatButton#PART_DecreaseButton">
+                                        <Setter Property="Background" Value="Green"/>
+                                </Style>
+
+                                <!-- keep the unfilled portion red on hover -->
+                                <Style Selector="Slider:horizontal:pointerover /template/ RepeatButton#PART_IncreaseButton">
+                                        <Setter Property="Background" Value="Red"/>
+                                </Style>
+
+                                <!-- keep both colors when pressed -->
+                                <Style Selector="Slider:horizontal:pressed /template/ RepeatButton#PART_DecreaseButton">
+                                        <Setter Property="Background" Value="Green"/>
+                                </Style>
+
+                                <Style Selector="Slider:horizontal:pressed /template/ RepeatButton#PART_IncreaseButton">
+                                        <Setter Property="Background" Value="Red"/>
+                                </Style>
+
+                                <!-- customize the track borders -->
+                                <Style Selector="Slider:horizontal /template/ RepeatButton#PART_DecreaseButton Border">
+                                        <Setter Property="Height" Value="6"/>
+                                        <Setter Property="CornerRadius" Value="0"/>
+                                </Style>
+
+                                <Style Selector="Slider:horizontal /template/ RepeatButton#PART_IncreaseButton Border">
+                                        <Setter Property="Height" Value="6"/>
+                                        <Setter Property="CornerRadius" Value="0"/>
+                                </Style>
+
+                                <!-- customize thumb -->
+                                <Style Selector="Slider:horizontal /template/ Thumb">
+                                        <Setter Property="Height" Value="18"/>
+                                        <Setter Property="Width" Value="18"/>
+                                        <Setter Property="BorderBrush" Value="White"/>
+                                        <Setter Property="BorderThickness" Value="3"/>
+                                        <Setter Property="Background" Value="White"/>
+                                </Style>
+
+                                <!-- make the thumb darken on hover -->
+                                <Style Selector="Slider:horizontal:pointerover /template/ Thumb">
+                                        <Setter Property="Background" Value="#c0c0c0"/>
+                                        <Setter Property="BorderBrush" Value="#c0c0c0"/>
+                                </Style>
+                        </Slider.Styles>
+                </Slider>
 
             </StackPanel>
 

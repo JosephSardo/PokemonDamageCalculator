@@ -1,3 +1,4 @@
+using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Metadata;
@@ -60,6 +61,9 @@ public partial class MainWindow
             Item1acb.SelectedItem = "None";
             Status1acb.SelectedItem = "Healthy";
             Gender1cb.SelectedItem = "None";
+
+            //Reset current HP
+            P1currentHp = Pokemon1.FinalStats.HP;
         }
     }
 
@@ -92,6 +96,7 @@ public partial class MainWindow
 
         LevelTextBox1.Text = correctedlvl.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
         Pokemon1.changeLevel(correctedlvl);
+        P1currentHp = Pokemon1.FinalStats.HP;
     }
 
     //Level selection textbox lost focus handler

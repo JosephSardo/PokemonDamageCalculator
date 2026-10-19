@@ -15,16 +15,18 @@ public partial class MainWindow : Window
     private Move? P1move2;
     private Move? P1move3;
     private Move? P1move4;
+    private int P1currentHp;
 
-    private Pokemon? Pokemon2;
+    //Will be uncommented when pokemon2 is implemented
+    /*private Pokemon? Pokemon2;
     private Move? P2move1;
     private Move? P2move2;
     private Move? P2move3;
     private Move? P2move4;
-
+    private int P2currentHp;
 
     private Move? SelectedMove;
-    private BattleState? BattleState;
+    private BattleState? BattleState;*/
 
     public MainWindow()
     {
@@ -36,7 +38,7 @@ public partial class MainWindow : Window
         Move FireFang = new("Fire Fang", 65, 100, PokemonType.Fire, MoveCategory.Physical);
         Move BrickBreak = new("Brick Break", 75, 100, PokemonType.Fighting, MoveCategory.Physical);
         Move DragonClaw = new("Dragon Claw", 80, 100, PokemonType.Dragon, MoveCategory.Physical);
-        Move Quake = new("Earthquake testtesttesttesttest", 100, 100, PokemonType.Ground, MoveCategory.Physical);
+        Move Quake = new("Earthquake", 100, 100, PokemonType.Ground, MoveCategory.Physical);
 
         //Temporary: hardcoding list of pokemon for testing
         Pokemon1acb.ItemsSource = new List<Pokemon>
@@ -117,6 +119,7 @@ public partial class MainWindow : Window
         };
 
         //Listen for items being changed
+
         //Pokemon 1
         //Pokemon selection
         Pokemon1acb.SelectionChanged += Pokemon1acb_SelectionChanged;
