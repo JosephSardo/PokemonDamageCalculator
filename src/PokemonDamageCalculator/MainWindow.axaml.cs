@@ -15,7 +15,6 @@ public partial class MainWindow : Window
     private Move? P1move2;
     private Move? P1move3;
     private Move? P1move4;
-    private int P1currentHp;
 
     //Will be uncommented when pokemon2 is implemented
     /*private Pokemon? Pokemon2;
@@ -23,7 +22,6 @@ public partial class MainWindow : Window
     private Move? P2move2;
     private Move? P2move3;
     private Move? P2move4;
-    private int P2currentHp;
 
     private Move? SelectedMove;
     private BattleState? BattleState;*/
@@ -154,6 +152,10 @@ public partial class MainWindow : Window
         Ability1acb.SelectionChanged += Ability1acb_SelectionChanged;
         Item1acb.SelectionChanged += Item1acb_SelectionChanged;
         Status1acb.SelectionChanged += Status1acb_SelectionChanged;
+
+        //Current HP changes
+        CurrentHPTextBox1.TextChanged += CurrentHPTextBox1_TextChanged;
+        PercHPTextBox1.TextChanged += PercHPTextBox1_TextChanged;
 
         //Pokemon 2
         /*Pokemon2acb.SelectionChanged += Pokemon2acb_SelectionChanged;

@@ -41,7 +41,12 @@ public partial class MainWindow
 
         HpIVTextBox1.Text = correctedIV.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
         Pokemon1.changeHPIV(correctedIV);
-        P1currentHp = Pokemon1.FinalStats.HP;
+
+        //update current HP based on new max
+        CurrentHPTextBox1.Text = Pokemon1.FinalStats.HP.ToString(); 
+        MaxHPText1.Text = "/" + Pokemon1.FinalStats.HP.ToString() + "   (";
+        HpSlider1.Maximum = Pokemon1.FinalStats.HP;
+        HpSlider1.Value = Pokemon1.FinalStats.HP;
     }
 
     private void AtkIVTextBox1_TextChanged(object? sender, TextChangedEventArgs e)

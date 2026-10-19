@@ -548,7 +548,8 @@
                                 MaxWidth="100"
                                 ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
-                        <TextBlock Grid.Column="2"
+                        <TextBlock x:Name="MaxHPText1"
+                                Grid.Column="2"
                                 Text="/1   ("
                                 FontSize="16"
                                 VerticalAlignment="Center"

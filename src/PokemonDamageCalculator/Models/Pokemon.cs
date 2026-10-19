@@ -23,6 +23,7 @@ public class Pokemon
     public Stats EVs {get; private set;}
     public Stats FinalStats {get; private set;}
     public StatChanges StatChanges {get; set;}
+    public int currentHP {get; set;}
 
     //other
     public (PokemonType Type1, PokemonType? Type2) Types {get; private set;} //second type is nullable bc not all pokemon have 2 types
@@ -40,6 +41,7 @@ public class Pokemon
         Nature = Nature.Serious;                    //default neutral nature
         FinalStats = Stats.calcFinalStats(Level, BaseStats, IVs, EVs, Nature); //calculates final stats of pokemon, not including nature
         StatChanges = new StatChanges();
+        currentHP = FinalStats.HP;
 
         Types = (type1, type2);
         Status = StatusCondition.Healthy;  //default no status, aka healthy

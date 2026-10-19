@@ -28,6 +28,8 @@ public partial class MainWindow
             BaseSpeedText1.Text = selectedPokemon.BaseStats.Speed.ToString();
 
             //Reset stats
+            LevelTextBox1.Text = "50";
+
             HpIVTextBox1.Text = "31";
             AtkIVTextBox1.Text = "31";
             DefIVTextBox1.Text = "31";
@@ -63,7 +65,10 @@ public partial class MainWindow
             Gender1cb.SelectedItem = "None";
 
             //Reset current HP
-            P1currentHp = Pokemon1.FinalStats.HP;
+            CurrentHPTextBox1.Text = Pokemon1.FinalStats.HP.ToString();
+            MaxHPText1.Text = "/" + Pokemon1.FinalStats.HP.ToString() + "   (";
+            HpSlider1.Maximum = Pokemon1.FinalStats.HP;
+            HpSlider1.Value = Pokemon1.FinalStats.HP;
         }
     }
 
@@ -96,7 +101,12 @@ public partial class MainWindow
 
         LevelTextBox1.Text = correctedlvl.ToString(); //one last correction of the textbox to ensure leading zeros eliminated
         Pokemon1.changeLevel(correctedlvl);
-        P1currentHp = Pokemon1.FinalStats.HP;
+
+        //update current HP based on new max
+        CurrentHPTextBox1.Text = Pokemon1.FinalStats.HP.ToString();
+        MaxHPText1.Text = "/" + Pokemon1.FinalStats.HP.ToString() + "   (";
+        HpSlider1.Maximum = Pokemon1.FinalStats.HP;
+        HpSlider1.Value = Pokemon1.FinalStats.HP;
     }
 
     //Level selection textbox lost focus handler
