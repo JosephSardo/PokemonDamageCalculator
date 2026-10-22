@@ -55,15 +55,46 @@ public partial class MainWindow
     }
 
     //Status selection
-    private void Status1acb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    private void Status1cb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
         if(Pokemon1 == null)
         {
             return;
         }
 
-        if(Status1acb.SelectedItem is StatusCondition selectedStatus)
+        if(Status1cb.SelectedItem is ComboBoxItem selectedItem)
         {
+            StatusCondition selectedStatus;
+            string? item = selectedItem.Content?.ToString()!; //convert selected item into a string
+
+            //determine which status was selected (the list is short so we use brute force)
+            if(item == "Healthy")
+            {
+                selectedStatus = StatusCondition.Healthy;
+            }else if(item == "Burned")
+            {
+                selectedStatus = StatusCondition.Burned;
+            }else if(item == "Paralyzed")
+            {
+                selectedStatus = StatusCondition.Paralyzed;
+            }else if(item == "Poisoned")
+            {
+                selectedStatus = StatusCondition.Poisoned;
+            }else if(item == "Badly Poisoned")
+            {
+                selectedStatus = StatusCondition.BadlyPoisoned;
+            }else if(item == "Asleep")
+            {
+                selectedStatus = StatusCondition.Asleep;
+            }else if(item == "Frozen")
+            {
+                selectedStatus = StatusCondition.Frozen;
+            }
+            else
+            {
+                return;
+            }
+
             Pokemon1.Status = selectedStatus;
         }
     }

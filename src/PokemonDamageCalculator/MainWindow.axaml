@@ -502,21 +502,29 @@
                                 </AutoCompleteBox>
 
                                 <!-- Status selection -->
-                                <AutoCompleteBox x:Name="Status1acb"
-                                                HorizontalAlignment="Center"
-                                                FilterMode="Contains"
-                                                MinimumPrefixLength="1"
-                                                PlaceholderText="Search..."
-                                                MinWidth="125"
-                                                MaxWidth="125">
-                                </AutoCompleteBox>
+                                <ComboBox x:Name="Status1cb"
+                                        HorizontalAlignment="Center"
+                                        PlaceholderText="Select..."
+                                        MinWidth="125"
+                                        MaxWidth="125"
+                                        SelectedIndex="0">
+
+                                        <ComboBoxItem Content="Healthy"/>
+                                        <ComboBoxItem Content="Burned"/>
+                                        <ComboBoxItem Content="Paralyzed"/>
+                                        <ComboBoxItem Content="Poisoned"/>
+                                        <ComboBoxItem Content="Badly Poisoned"/>
+                                        <ComboBoxItem Content="Asleep"/>
+                                        <ComboBoxItem Content="Frozen"/>
+                                </ComboBox>
 
                                 <!-- Gender selection -->
                                 <ComboBox x:Name="Gender1cb"
                                         HorizontalAlignment="Center"
                                         PlaceholderText="Select..."
                                         MinWidth="125"
-                                        MaxWidth="125">
+                                        MaxWidth="125"
+                                        SelectedIndex="0">
 
                                         <ComboBoxItem Content="None"/>
                                         <ComboBoxItem Content="Male"/>

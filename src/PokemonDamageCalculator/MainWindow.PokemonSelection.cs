@@ -61,8 +61,8 @@ public partial class MainWindow
             Nature1acb.SelectedItem = Nature.Serious;
             Ability1acb.SelectedItem = Pokemon1.Ability; //LATER: Make the pokemon's ability default to its first valid ability upon the pokemon object's creation
             Item1acb.SelectedItem = "None";
-            Status1acb.SelectedItem = "Healthy";
-            Gender1cb.SelectedItem = "None";
+            Status1cb.SelectedIndex = 0;
+            Gender1cb.SelectedIndex = 0;
 
             //Reset current HP
             CurrentHPTextBox1.Text = Pokemon1.FinalStats.HP.ToString();

@@ -13,6 +13,7 @@ public partial class MainWindow
     //prevents a change in one textbox from creating a loop where they both repeatedly change each other
     private bool _updatingHPUI = false;
 
+    //allows us to determine whether a text change was performed by the code or by the user
     private string? _programmaticCurrentHPText;
     private string? _programmaticPercentageText;
 
@@ -21,7 +22,7 @@ public partial class MainWindow
     {
         if (_programmaticCurrentHPText != null)
         {
-            if (CurrentHPTextBox1.Text == _programmaticCurrentHPText)
+            if (CurrentHPTextBox1.Text == _programmaticCurrentHPText) //if the text was changed by the code, return early
             {
                 _programmaticCurrentHPText = null;
                 return;
@@ -80,7 +81,7 @@ public partial class MainWindow
     {
         if (_programmaticPercentageText != null)
         {
-            if (PercHPTextBox1.Text == _programmaticPercentageText)
+            if (PercHPTextBox1.Text == _programmaticPercentageText) //if the text was changed by the code, return early
             {
                 _programmaticPercentageText = null;
                 return;

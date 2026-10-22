@@ -104,18 +104,6 @@ public partial class MainWindow : Window
             "Life Orb"
         };
 
-        //Create list of statuses for the autocompletebox
-        Status1acb.ItemsSource = new List<StatusCondition>
-        {
-            StatusCondition.Healthy,
-            StatusCondition.Burned,
-            StatusCondition.Paralyzed,
-            StatusCondition.Poisoned,
-            StatusCondition.BadlyPoisoned,
-            StatusCondition.Asleep,
-            StatusCondition.Frozen
-        };
-
         //Listen for items being changed
 
         //Pokemon 1
@@ -151,7 +139,8 @@ public partial class MainWindow : Window
         Nature1acb.SelectionChanged += Nature1acb_SelectionChanged;
         Ability1acb.SelectionChanged += Ability1acb_SelectionChanged;
         Item1acb.SelectionChanged += Item1acb_SelectionChanged;
-        Status1acb.SelectionChanged += Status1acb_SelectionChanged;
+        Status1cb.SelectionChanged += Status1cb_SelectionChanged;
+        Gender1cb.SelectionChanged += Gender1cb_SelectionChanged;
 
         //Current HP changes
         CurrentHPTextBox1.TextChanged += CurrentHPTextBox1_TextChanged;
