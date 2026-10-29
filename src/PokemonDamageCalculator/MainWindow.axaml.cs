@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 namespace PokemonDamageCalculator;
 
+//TODO: Implement everything for pokemon 2
+//TODO: Implement UI for field condition selection
+
 //This mainwindow file contains declarations for all objects necessary for UI to function
 public partial class MainWindow : Window
 {

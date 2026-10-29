@@ -22,7 +22,8 @@ public class Move(string name, int power, int accuracy, PokemonType type, MoveCa
     //returns the move's category as a string
     public string catAsString()
     {
-        if(Category == MoveCategory.Physical) return "Physical";
-        return "Special";
+        if(Category == MoveCategory.Physical) return "Phys";
+        if(Category == MoveCategory.Special) return "Spec";
+        return "Status";
     }
 }

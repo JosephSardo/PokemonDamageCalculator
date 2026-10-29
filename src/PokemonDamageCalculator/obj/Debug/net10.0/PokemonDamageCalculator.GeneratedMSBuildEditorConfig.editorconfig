@@ -32,3 +32,15 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [C:/Users/Joseph/Documents/GitHub/PokemonDamageCalculator/src/PokemonDamageCalculator/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Joseph/Documents/GitHub/PokemonDamageCalculator/src/PokemonDamageCalculator/Assets/Fonts/SpaceMono-Bold.ttf]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaResource
+
+[C:/Users/Joseph/Documents/GitHub/PokemonDamageCalculator/src/PokemonDamageCalculator/Assets/Fonts/SpaceMono-BoldItalic.ttf]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaResource
+
+[C:/Users/Joseph/Documents/GitHub/PokemonDamageCalculator/src/PokemonDamageCalculator/Assets/Fonts/SpaceMono-Italic.ttf]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaResource
+
+[C:/Users/Joseph/Documents/GitHub/PokemonDamageCalculator/src/PokemonDamageCalculator/Assets/Fonts/SpaceMono-Regular.ttf]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaResource
