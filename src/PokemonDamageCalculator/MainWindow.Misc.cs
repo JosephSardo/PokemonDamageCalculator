@@ -112,4 +112,37 @@ public partial class MainWindow
             Pokemon1.Gender = selectedItem.Content?.ToString() ?? "None";
         }
     }
+
+    //Nature selection lost focus handler
+    private void Nature1acb_LostFocus(object? sender, RoutedEventArgs e)
+    {
+        if(Pokemon1 == null) return;
+
+        if (string.IsNullOrWhiteSpace(Nature1acb.Text))
+        {
+            Nature1acb.Text = Pokemon1.Nature.ToString();
+        }
+    }
+
+    //Ability selection lost focus handler
+    private void Ability1acb_LostFocus(object? sender, RoutedEventArgs e)
+    {
+        if(Pokemon1 == null) return;
+
+        if (string.IsNullOrWhiteSpace(Ability1acb.Text))
+        {
+            Ability1acb.Text = Pokemon1.Ability;
+        }
+    }
+
+    //Held item selection lost focus handler
+    private void Item1acb_LostFocus(object? sender, RoutedEventArgs e)
+    {
+        if(Pokemon1 == null) return;
+
+        if (string.IsNullOrWhiteSpace(Item1acb.Text))
+        {
+            Item1acb.Text = Pokemon1.Item;
+        }
+    }
 }

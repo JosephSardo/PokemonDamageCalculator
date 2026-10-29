@@ -544,6 +544,7 @@
                                                 
                                                 <!-- Nature selection -->
                                                 <AutoCompleteBox x:Name="Nature1acb"
+                                                                LostFocus="Nature1acb_LostFocus"
                                                                 HorizontalAlignment="Center"
                                                                 FilterMode="Contains"
                                                                 MinimumPrefixLength="1"
@@ -554,6 +555,7 @@
 
                                                 <!-- Ability selection -->
                                                 <AutoCompleteBox x:Name="Ability1acb"
+                                                                LostFocus="Ability1acb_LostFocus"
                                                                 HorizontalAlignment="Center"
                                                                 FilterMode="Contains"
                                                                 MinimumPrefixLength="1"
@@ -564,6 +566,7 @@
 
                                                 <!-- Held item selection -->
                                                 <AutoCompleteBox x:Name="Item1acb"
+                                                                LostFocus="Item1acb_LostFocus"
                                                                 HorizontalAlignment="Center"
                                                                 FilterMode="Contains"
                                                                 MinimumPrefixLength="1"

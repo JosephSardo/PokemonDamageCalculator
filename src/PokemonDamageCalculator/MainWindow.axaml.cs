@@ -104,6 +104,7 @@ public partial class MainWindow : Window
         //Temporary: hardcoding list of held items for the autocompletebox
         Item1acb.ItemsSource = new List<String>
         {
+            "None",
             "Life Orb"
         };
 
