@@ -5,64 +5,64 @@ using PokemonDamageCalculator.Models;
 using System;
 using System.Collections.Generic;
 
-namespace PokemonDamageCalculator;
+namespace PokemonDamageCalculator.Views;
 
 //This mainwindow file contains code for misc stat selection (natures, abilities, held items, statuses)
-public partial class MainWindow
+public partial class PokemonPanel : UserControl
 {
     //Pokemon 1 Functions
 
     //Nature selection
-    private void Nature1acb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    private void NatureAcb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
-        if(Pokemon1 == null)
+        if(Pokemon == null)
         {
             return;
         }
 
-        if(Nature1acb.SelectedItem is Nature selectedNature)
+        if(NatureAcb.SelectedItem is Nature selectedNature)
         {
-            Pokemon1.changeNature(selectedNature);
+            Pokemon.changeNature(selectedNature);
         }
     }
 
     //Ability selection
-    private void Ability1acb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    private void AbilityAcb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
-        if(Pokemon1 == null)
+        if(Pokemon == null)
         {
             return;
         }
         
-        if(Ability1acb.SelectedItem is string selectedAbility)
+        if(AbilityAcb.SelectedItem is string selectedAbility)
         {
-            Pokemon1.Ability = selectedAbility;
+            Pokemon.Ability = selectedAbility;
         }
     }
 
     //Item selection
-    private void Item1acb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    private void ItemAcb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
-        if(Pokemon1 == null)
+        if(Pokemon == null)
         {
             return;
         }
         
-        if(Item1acb.SelectedItem is string selectedItem)
+        if(ItemAcb.SelectedItem is string selectedItem)
         {
-            Pokemon1.Item = selectedItem;
+            Pokemon.Item = selectedItem;
         }
     }
 
     //Status selection
-    private void Status1cb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    private void StatusCb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
-        if(Pokemon1 == null)
+        if(Pokemon == null)
         {
             return;
         }
 
-        if(Status1cb.SelectedItem is ComboBoxItem selectedItem)
+        if(StatusCb.SelectedItem is ComboBoxItem selectedItem)
         {
             StatusCondition selectedStatus;
             string? item = selectedItem.Content?.ToString()!; //convert selected item into a string
@@ -95,54 +95,54 @@ public partial class MainWindow
                 return;
             }
 
-            Pokemon1.Status = selectedStatus;
+            Pokemon.Status = selectedStatus;
         }
     }
 
     //Gender selection
-    private void Gender1cb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    private void GenderCb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
-        if(Pokemon1 == null)
+        if(Pokemon == null)
         {
             return;
         }
 
-        if(Gender1cb.SelectedItem is ComboBoxItem selectedItem)
+        if(GenderCb.SelectedItem is ComboBoxItem selectedItem)
         {
-            Pokemon1.Gender = selectedItem.Content?.ToString() ?? "None";
+            Pokemon.Gender = selectedItem.Content?.ToString() ?? "None";
         }
     }
 
     //Nature selection lost focus handler
-    private void Nature1acb_LostFocus(object? sender, RoutedEventArgs e)
+    private void NatureAcb_LostFocus(object? sender, RoutedEventArgs e)
     {
-        if(Pokemon1 == null) return;
+        if(Pokemon == null) return;
 
-        if (string.IsNullOrWhiteSpace(Nature1acb.Text))
+        if (string.IsNullOrWhiteSpace(NatureAcb.Text))
         {
-            Nature1acb.Text = Pokemon1.Nature.ToString();
+            NatureAcb.Text = Pokemon.Nature.ToString();
         }
     }
 
     //Ability selection lost focus handler
-    private void Ability1acb_LostFocus(object? sender, RoutedEventArgs e)
+    private void AbilityAcb_LostFocus(object? sender, RoutedEventArgs e)
     {
-        if(Pokemon1 == null) return;
+        if(Pokemon == null) return;
 
-        if (string.IsNullOrWhiteSpace(Ability1acb.Text))
+        if (string.IsNullOrWhiteSpace(AbilityAcb.Text))
         {
-            Ability1acb.Text = Pokemon1.Ability;
+            AbilityAcb.Text = Pokemon.Ability;
         }
     }
 
     //Held item selection lost focus handler
-    private void Item1acb_LostFocus(object? sender, RoutedEventArgs e)
+    private void ItemAcb_LostFocus(object? sender, RoutedEventArgs e)
     {
-        if(Pokemon1 == null) return;
+        if(Pokemon == null) return;
 
-        if (string.IsNullOrWhiteSpace(Item1acb.Text))
+        if (string.IsNullOrWhiteSpace(ItemAcb.Text))
         {
-            Item1acb.Text = Pokemon1.Item;
+            ItemAcb.Text = Pokemon.Item;
         }
     }
 }

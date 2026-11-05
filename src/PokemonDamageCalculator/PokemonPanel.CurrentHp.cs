@@ -5,10 +5,10 @@ using PokemonDamageCalculator.Models;
 using System;
 using System.Collections.Generic;
 
-namespace PokemonDamageCalculator;
+namespace PokemonDamageCalculator.Views;
 
 //This mainwindow file contains functions to allow for alteration of CURRENT hp (NOT the hp stat)
-public partial class MainWindow
+public partial class PokemonPanel : UserControl
 {
     //prevents a change in one textbox from creating a loop where they both repeatedly change each other
     private bool _updatingHPUI = false;
@@ -18,11 +18,11 @@ public partial class MainWindow
     private string? _programmaticPercentageText;
 
     //Change exact current HP
-    private void CurrentHPTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
+    private void CurrentHPTextBox_TextChanged(object? sender, TextChangedEventArgs e)
     {
         if (_programmaticCurrentHPText != null)
         {
-            if (CurrentHPTextBox1.Text == _programmaticCurrentHPText) //if the text was changed by the code, return early
+            if (CurrentHPTextBox.Text == _programmaticCurrentHPText) //if the text was changed by the code, return early
             {
                 _programmaticCurrentHPText = null;
                 return;
@@ -31,44 +31,44 @@ public partial class MainWindow
             _programmaticCurrentHPText = null;
         }
 
-        if(_updatingHPUI || Pokemon1 == null || CurrentHPTextBox1.Text == "") //ensure a pokemon is selected
+        if(_updatingHPUI || Pokemon == null || CurrentHPTextBox.Text == "") //ensure a pokemon is selected
         {
             return;
         }
 
-        if(!int.TryParse(CurrentHPTextBox1.Text, out int HP)) //ensure input is an integer
+        if(!int.TryParse(CurrentHPTextBox.Text, out int HP)) //ensure input is an integer
         {
-            if(CurrentHPTextBox1.Text!.Length == 1) //if we try and put a non-integer into an empty textbox, keep the textbox empty
+            if(CurrentHPTextBox.Text!.Length == 1) //if we try and put a non-integer into an empty textbox, keep the textbox empty
             {
-                CurrentHPTextBox1.Text = "";
+                CurrentHPTextBox.Text = "";
                 return;
             }
-            CurrentHPTextBox1.Text = Pokemon1.currentHP.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same HP remains displayed
+            CurrentHPTextBox.Text = Pokemon.currentHP.ToString(); //if we try and put a non-integer into a non-empty textbox, make it so nothing changes and the same HP remains displayed
             return;
         }
 
-        int correctedHP = Math.Clamp(HP, 0, Pokemon1.FinalStats.HP); //ensure input is within valid range
+        int correctedHP = Math.Clamp(HP, 0, Pokemon.FinalStats.HP); //ensure input is within valid range
 
         _updatingHPUI = true;
 
         try
         {
             //update percentage textbox
-            int currentPerc = (int)Math.Round((double)correctedHP / Pokemon1.FinalStats.HP * 100.0);
+            int currentPerc = (int)Math.Round((double)correctedHP / Pokemon.FinalStats.HP * 100.0);
             string percentageText = currentPerc.ToString();
 
-            if (PercHPTextBox1.Text != percentageText)
+            if (PercHPTextBox.Text != percentageText)
             {
                 _programmaticPercentageText = percentageText;
-                PercHPTextBox1.Text = percentageText;
+                PercHPTextBox.Text = percentageText;
             }
 
             //update exact hp textbox
-            CurrentHPTextBox1.Text = correctedHP.ToString();
-            Pokemon1.currentHP = correctedHP;
+            CurrentHPTextBox.Text = correctedHP.ToString();
+            Pokemon.currentHP = correctedHP;
 
             //update slider
-            HpSlider1.Value = correctedHP;
+            HpSlider.Value = correctedHP;
         }
         finally
         {
@@ -77,11 +77,11 @@ public partial class MainWindow
     }
 
     //Change percent current HP
-    private void PercHPTextBox1_TextChanged(object? sender, TextChangedEventArgs e)
+    private void PercHPTextBox_TextChanged(object? sender, TextChangedEventArgs e)
     {
         if (_programmaticPercentageText != null)
         {
-            if (PercHPTextBox1.Text == _programmaticPercentageText) //if the text was changed by the code, return early
+            if (PercHPTextBox.Text == _programmaticPercentageText) //if the text was changed by the code, return early
             {
                 _programmaticPercentageText = null;
                 return;
@@ -90,47 +90,47 @@ public partial class MainWindow
             _programmaticPercentageText = null;
         }
 
-        if (_updatingHPUI || Pokemon1 == null || string.IsNullOrEmpty(PercHPTextBox1.Text))
+        if (_updatingHPUI || Pokemon == null || string.IsNullOrEmpty(PercHPTextBox.Text))
         {
             return;
         }
 
-        if (!int.TryParse(PercHPTextBox1.Text, out int percentage))
+        if (!int.TryParse(PercHPTextBox.Text, out int percentage))
         {
-            if (PercHPTextBox1.Text.Length == 1)
+            if (PercHPTextBox.Text.Length == 1)
             {
-                PercHPTextBox1.Text = "";
+                PercHPTextBox.Text = "";
                 return;
             }
 
-            PercHPTextBox1.Text = ((int)Math.Round((double)Pokemon1.currentHP / Pokemon1.FinalStats.HP * 100.0)).ToString();
+            PercHPTextBox.Text = ((int)Math.Round((double)Pokemon.currentHP / Pokemon.FinalStats.HP * 100.0)).ToString();
 
             return;
         }
 
         int correctedPercentage = Math.Clamp(percentage, 0, 100);
 
-        int correctedHP = (int)Math.Round(Pokemon1.FinalStats.HP * correctedPercentage / 100.0);
+        int correctedHP = (int)Math.Round(Pokemon.FinalStats.HP * correctedPercentage / 100.0);
 
         _updatingHPUI = true;
 
         try
         {
             //update percentage textbox
-            PercHPTextBox1.Text = correctedPercentage.ToString();
-            Pokemon1.currentHP = correctedHP;
+            PercHPTextBox.Text = correctedPercentage.ToString();
+            Pokemon.currentHP = correctedHP;
 
             //update exact hp textbox
             string hpText = correctedHP.ToString();
 
-            if (CurrentHPTextBox1.Text != hpText)
+            if (CurrentHPTextBox.Text != hpText)
             {
                 _programmaticCurrentHPText = hpText;
-                CurrentHPTextBox1.Text = hpText;
+                CurrentHPTextBox.Text = hpText;
             }
 
             //update slider
-            HpSlider1.Value = correctedHP;
+            HpSlider.Value = correctedHP;
         }
         finally
         {
