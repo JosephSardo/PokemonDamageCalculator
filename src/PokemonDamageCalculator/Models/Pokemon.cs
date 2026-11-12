@@ -30,7 +30,7 @@ public class Pokemon
     public Nature Nature {get; private set;}
     public StatusCondition Status {get; set;}
 
-    public Pokemon(string name, Stats basestats, PokemonType type1, PokemonType type2)
+    public Pokemon(string name, Stats basestats, PokemonType type1, PokemonType? type2 = null)
     {
         Name = name;
         Level = 50;

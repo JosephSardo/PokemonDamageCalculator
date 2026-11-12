@@ -9,7 +9,7 @@
                         HorizontalAlignment="Center"
                         Spacing="10">
 
-                        <TextBlock Text="Pokemon 1"
+                        <TextBlock Text="Select Pokemon"
                                 FontSize="32"
                                 HorizontalAlignment="Center"
                                 FontWeight="Bold"/>

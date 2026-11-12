@@ -15,7 +15,8 @@ public partial class PokemonPanel : UserControl
 
     /*
     private Move? SelectedMove;
-    private BattleState? BattleState;*/
+    private BattleState? BattleState;
+    */
 
     public PokemonPanel()
     {
@@ -30,6 +31,7 @@ public partial class PokemonPanel : UserControl
         Move Quake = new("Earthquake", 100, 100, PokemonType.Ground, MoveCategory.Physical);
 
         //Temporary: hardcoding list of pokemon for testing
+        //PokemonAcb.ItemsSource = PokemonLoader.LoadPokemon();
         PokemonAcb.ItemsSource = new List<Pokemon>
         {
             Garchomp,

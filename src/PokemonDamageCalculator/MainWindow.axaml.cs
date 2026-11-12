@@ -13,12 +13,6 @@ namespace PokemonDamageCalculator;
 //This mainwindow file contains declarations for all objects necessary for UI to function
 public partial class MainWindow : Window
 {
-    private Pokemon? Pokemon1;
-    private Move? P1move1;
-    private Move? P1move2;
-    private Move? P1move3;
-    private Move? P1move4;
-
     public MainWindow()
     {
         InitializeComponent();

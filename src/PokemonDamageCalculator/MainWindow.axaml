@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:views="using:PokemonDamageCalculator.Views"
         x:Class="PokemonDamageCalculator.MainWindow"
         Title="PokemonDamageCalculator"
         MinWidth="540"
@@ -39,9 +40,9 @@
         </Window.Styles>
 
         <Grid ColumnDefinitions="*,*,*">
-
-                <!-- Pokemon1 -->
-                
+                <!-- Pokemon 1 -->
+                <views:PokemonPanel x:Name="Pokemon1Panel"
+                                Grid.Column="0"/>
 
                 <!-- Damage -->
                 <StackPanel Grid.Column="1" 
@@ -60,7 +61,9 @@
 
                 </StackPanel>
 
-                <!-- Pokemon2 -->
+                <!-- Pokemon 2 -->
+                <views:PokemonPanel x:Name="Pokemon2Panel"
+                                Grid.Column="2"/>
                 
         </Grid>
 </Window>
