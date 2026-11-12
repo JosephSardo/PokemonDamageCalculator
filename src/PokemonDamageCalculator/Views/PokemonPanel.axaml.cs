@@ -2,6 +2,7 @@ using Avalonia.Controls;
 using PokemonDamageCalculator.Models;
 using System;
 using System.Collections.Generic;
+using PokemonDamageCalculator.Services;
 
 namespace PokemonDamageCalculator.Views;
 
@@ -22,21 +23,13 @@ public partial class PokemonPanel : UserControl
     {
         InitializeComponent();
 
-        Pokemon Garchomp = new("Garchomp", new Stats(108, 130, 95, 80, 85, 102), PokemonType.Dragon, PokemonType.Ground);
-        Pokemon Aggron = new("Aggron", new Stats(70, 110, 180, 60, 60, 50), PokemonType.Steel, PokemonType.Rock);
-
         Move FireFang = new("Fire Fang", 65, 100, PokemonType.Fire, MoveCategory.Physical);
         Move BrickBreak = new("Brick Break", 75, 100, PokemonType.Fighting, MoveCategory.Physical);
         Move DragonClaw = new("Dragon Claw", 80, 100, PokemonType.Dragon, MoveCategory.Physical);
         Move Quake = new("Earthquake", 100, 100, PokemonType.Ground, MoveCategory.Physical);
 
-        //Temporary: hardcoding list of pokemon for testing
-        //PokemonAcb.ItemsSource = PokemonLoader.LoadPokemon();
-        PokemonAcb.ItemsSource = new List<Pokemon>
-        {
-            Garchomp,
-            Aggron
-        };
+        //load list of pokemon from local database
+        PokemonAcb.ItemsSource = PokemonLoader.LoadPokemon("Data/pokemon.json");
 
         //Temporary: hardcoding list of moves for testing
         Move1Acb.ItemsSource = new List<Move>

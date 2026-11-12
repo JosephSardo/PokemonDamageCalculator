@@ -274,3 +274,4 @@ C:\Users\Joseph\Documents\GitHub\PokemonDamageCalculator\src\PokemonDamageCalcul
 C:\Users\Joseph\Documents\GitHub\PokemonDamageCalculator\src\PokemonDamageCalculator\obj\Debug\net10.0\PokemonDamageCalculator.pdb
 C:\Users\Joseph\Documents\GitHub\PokemonDamageCalculator\src\PokemonDamageCalculator\obj\Debug\net10.0\PokemonDamageCalculator.genruntimeconfig.cache
 C:\Users\Joseph\Documents\GitHub\PokemonDamageCalculator\src\PokemonDamageCalculator\obj\Debug\net10.0\ref\PokemonDamageCalculator.dll
+C:\Users\Joseph\Documents\GitHub\PokemonDamageCalculator\src\PokemonDamageCalculator\bin\Debug\net10.0\Data\pokemon.json
