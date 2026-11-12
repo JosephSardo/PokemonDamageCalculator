@@ -70,11 +70,20 @@ public static class PokemonLoader
 
         Console.WriteLine($"Loaded {pokemonList.Count} Pokemon.");
 
-        foreach (var pokemon in pokemonList.Take(5))
+        foreach (var pokemon in pokemonList.Take(15))
         {
-            Console.WriteLine(
-                $"{pokemon.Name}: {pokemon.Types.Type1}, {pokemon.BaseStats.HP} HP"
-            );
+            PokemonType? type2 = pokemon.Types.Type2;
+            if(type2 == null){
+                Console.WriteLine(
+                    $"{pokemon.Name}: {pokemon.Types.Type1}, {pokemon.BaseStats.HP} HP"
+                );
+            }
+            else
+            {
+                Console.WriteLine(
+                    $"{pokemon.Name}: {pokemon.Types.Type1} {type2}, {pokemon.BaseStats.HP} HP"
+                );
+            }
         }
 
         return pokemonList;
