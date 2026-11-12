@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using PokemonDamageCalculator.Models;
+using System.Linq;
 
 namespace PokemonDamageCalculator.Services;
 
@@ -65,6 +66,15 @@ public static class PokemonLoader
             //construct pokemon object, add it to the list
             Pokemon pokemon = new(dto.Name, baseStats, type1, type2);
             pokemonList.Add(pokemon);
+        }
+
+        Console.WriteLine($"Loaded {pokemonList.Count} Pokemon.");
+
+        foreach (var pokemon in pokemonList.Take(5))
+        {
+            Console.WriteLine(
+                $"{pokemon.Name}: {pokemon.Types.Type1}, {pokemon.BaseStats.HP} HP"
+            );
         }
 
         return pokemonList;

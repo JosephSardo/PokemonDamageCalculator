@@ -1,21 +1,23 @@
 using Avalonia.Controls;
-using Avalonia.Interactivity;
-using Avalonia.Metadata;
 using PokemonDamageCalculator.Models;
-using System;
 using System.Collections.Generic;
+using PokemonDamageCalculator.Services;
 
 namespace PokemonDamageCalculator;
 
-//TODO: Implement everything for pokemon 2
 //TODO: Implement UI for field condition selection
 
 //This mainwindow file contains declarations for all objects necessary for UI to function
 public partial class MainWindow : Window
 {
+    public List<Pokemon> Pokedex { get; private set; }
     public MainWindow()
     {
         InitializeComponent();
+        Pokedex = PokemonLoader.LoadPokemon("Data/pokemon.json");
+
+        Pokemon1Panel.Pokedex = Pokedex;
+        Pokemon2Panel.Pokedex = Pokedex;
     }
 }
 

@@ -2,7 +2,6 @@ using Avalonia.Controls;
 using PokemonDamageCalculator.Models;
 using System;
 using System.Collections.Generic;
-using PokemonDamageCalculator.Services;
 
 namespace PokemonDamageCalculator.Views;
 
@@ -19,6 +18,18 @@ public partial class PokemonPanel : UserControl
     private BattleState? BattleState;
     */
 
+    //create database of pokemon for selection
+    private List<Pokemon> _pokedex = new();
+    public List<Pokemon> Pokedex
+    {
+        get => _pokedex;
+        set
+        {
+            _pokedex = value;
+            PokemonAcb.ItemsSource = _pokedex;
+        }
+    }
+
     public PokemonPanel()
     {
         InitializeComponent();
@@ -27,9 +38,6 @@ public partial class PokemonPanel : UserControl
         Move BrickBreak = new("Brick Break", 75, 100, PokemonType.Fighting, MoveCategory.Physical);
         Move DragonClaw = new("Dragon Claw", 80, 100, PokemonType.Dragon, MoveCategory.Physical);
         Move Quake = new("Earthquake", 100, 100, PokemonType.Ground, MoveCategory.Physical);
-
-        //load list of pokemon from local database
-        PokemonAcb.ItemsSource = PokemonLoader.LoadPokemon("Data/pokemon.json");
 
         //Temporary: hardcoding list of moves for testing
         Move1Acb.ItemsSource = new List<Move>
