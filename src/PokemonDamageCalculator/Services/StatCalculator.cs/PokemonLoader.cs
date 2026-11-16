@@ -4,7 +4,6 @@ using System.IO;
 using System.Text.Json;
 using PokemonDamageCalculator.Models;
 using System.Linq;
-using Avalonia.Controls.ApplicationLifetimes;
 
 namespace PokemonDamageCalculator.Services;
 

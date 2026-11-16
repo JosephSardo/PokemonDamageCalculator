@@ -9,7 +9,7 @@ public class Move(string name, int power, int accuracy, PokemonType type, MoveCa
     //create properties
     public string Name { get; private set; } = name;
     public int Power { get; private set; } = power;
-    public int Accuracy {get; private set; } = accuracy;
+    public int Accuracy {get; private set; } = accuracy; //if accuracy is 101, the move is a guaranteed hit (bypasses accuracy checks entirely)
     public PokemonType Type { get; private set; } = type;
     public MoveCategory Category { get; private set; } = category;
 

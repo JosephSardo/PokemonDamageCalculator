@@ -31,6 +31,7 @@ public class Pokemon
     public Nature Nature {get; private set;}
     public List<string> Abilities {get; private set;}
     public StatusCondition Status {get; set;}
+    public List<Move> Movepool {get; set;}
 
     public Pokemon(string name, Stats basestats, List<string> abilities, PokemonType type1, PokemonType? type2 = null)
     {
@@ -48,6 +49,7 @@ public class Pokemon
         Types = (type1, type2);
         Abilities = abilities;
         Status = StatusCondition.Healthy;  //default no status, aka healthy
+        Movepool = new();
     }
 
     //print IVs
