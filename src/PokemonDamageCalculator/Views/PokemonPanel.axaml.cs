@@ -86,11 +86,8 @@ public partial class PokemonPanel : UserControl
             Nature.Serious
         };
 
-        //Temporary: hardcoding list of abilities for the autocompletebox
-        AbilityAcb.ItemsSource = new List<String>
-        {
-            "Rough Skin"
-        };
+        //default empty list of abilities
+        AbilityCb.ItemsSource = new List<string>();
 
         //Temporary: hardcoding list of held items for the autocompletebox
         ItemAcb.ItemsSource = new List<String>
@@ -132,7 +129,7 @@ public partial class PokemonPanel : UserControl
 
         //Misc selection
         NatureAcb.SelectionChanged += NatureAcb_SelectionChanged;
-        AbilityAcb.SelectionChanged += AbilityAcb_SelectionChanged;
+        AbilityCb.SelectionChanged += AbilityCb_SelectionChanged;
         ItemAcb.SelectionChanged += ItemAcb_SelectionChanged;
         StatusCb.SelectionChanged += StatusCb_SelectionChanged;
         GenderCb.SelectionChanged += GenderCb_SelectionChanged;

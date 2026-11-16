@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using Microsoft.VisualBasic;
 
@@ -28,9 +29,10 @@ public class Pokemon
     //other
     public (PokemonType Type1, PokemonType? Type2) Types {get; private set;} //second type is nullable bc not all pokemon have 2 types
     public Nature Nature {get; private set;}
+    public List<string> Abilities {get; private set;}
     public StatusCondition Status {get; set;}
 
-    public Pokemon(string name, Stats basestats, PokemonType type1, PokemonType? type2 = null)
+    public Pokemon(string name, Stats basestats, List<string> abilities, PokemonType type1, PokemonType? type2 = null)
     {
         Name = name;
         Level = 50;
@@ -44,6 +46,7 @@ public class Pokemon
         currentHP = FinalStats.HP;
 
         Types = (type1, type2);
+        Abilities = abilities;
         Status = StatusCondition.Healthy;  //default no status, aka healthy
     }
 

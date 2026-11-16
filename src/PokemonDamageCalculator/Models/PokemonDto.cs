@@ -12,6 +12,8 @@ public class PokemonDto
     [JsonPropertyName("baseStats")]
     public PokemonStatsDto BaseStats { get; set; } = new();
 
+    public Dictionary<string, string> Abilities { get; set; } = new();
+
     public bool IsCosmeticForme { get; set; }
 }
 

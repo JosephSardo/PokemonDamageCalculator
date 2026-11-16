@@ -478,7 +478,7 @@
                                                 <!-- Stackpanel with labels for autocompleteboxes-->
                                                 <StackPanel Grid.Column="0"
                                                         HorizontalAlignment="Right"
-                                                        Spacing="13"
+                                                        Spacing="12"
                                                         Margin="0,6,10,0">
                                                         
                                                         <TextBlock Text="Nature"
@@ -518,15 +518,13 @@
                                                         </AutoCompleteBox>
 
                                                         <!-- Ability selection -->
-                                                        <AutoCompleteBox x:Name="AbilityAcb"
-                                                                        LostFocus="AbilityAcb_LostFocus"
+                                                        <ComboBox x:Name="AbilityCb"
                                                                         HorizontalAlignment="Center"
-                                                                        FilterMode="Contains"
-                                                                        MinimumPrefixLength="1"
-                                                                        PlaceholderText="Search..."
+                                                                        PlaceholderText="Select..."
                                                                         MinWidth="125"
-                                                                        MaxWidth="125">
-                                                        </AutoCompleteBox>
+                                                                        MaxWidth="125"
+                                                                        SelectedIndex="-1">
+                                                        </ComboBox>
 
                                                         <!-- Held item selection -->
                                                         <AutoCompleteBox x:Name="ItemAcb"
@@ -545,7 +543,7 @@
                                                                 PlaceholderText="Select..."
                                                                 MinWidth="125"
                                                                 MaxWidth="125"
-                                                                SelectedIndex="0">
+                                                                SelectedIndex="-1">
 
                                                                 <ComboBoxItem Content="Healthy"/>
                                                                 <ComboBoxItem Content="Burned"/>
@@ -562,7 +560,7 @@
                                                                 PlaceholderText="Select..."
                                                                 MinWidth="125"
                                                                 MaxWidth="125"
-                                                                SelectedIndex="0">
+                                                                SelectedIndex="-1">
 
                                                                 <ComboBoxItem Content="None"/>
                                                                 <ComboBoxItem Content="Male"/>

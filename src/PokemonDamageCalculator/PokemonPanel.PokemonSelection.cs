@@ -57,7 +57,9 @@ public partial class PokemonPanel : UserControl
 
             //Reset misc attributes
             NatureAcb.SelectedItem = Nature.Serious;
-            AbilityAcb.SelectedItem = Pokemon.Ability; //LATER: Make the pokemon's ability default to its first valid ability upon the pokemon object's creation
+            AbilityCb.SelectedIndex = -1;
+            AbilityCb.ItemsSource = Pokemon.Abilities;
+            AbilityCb.SelectedIndex = 0;
             ItemAcb.SelectedItem = "None";
             StatusCb.SelectedIndex = 0;
             GenderCb.SelectedIndex = 0;

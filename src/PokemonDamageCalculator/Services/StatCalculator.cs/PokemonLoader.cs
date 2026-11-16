@@ -4,6 +4,7 @@ using System.IO;
 using System.Text.Json;
 using PokemonDamageCalculator.Models;
 using System.Linq;
+using Avalonia.Controls.ApplicationLifetimes;
 
 namespace PokemonDamageCalculator.Services;
 
@@ -63,8 +64,11 @@ public static class PokemonLoader
             //obtain base stats
             Stats baseStats = new(dto.BaseStats.HP, dto.BaseStats.Atk, dto.BaseStats.Def, dto.BaseStats.SpAtk, dto.BaseStats.SpDef, dto.BaseStats.Speed);
 
+            //obtain abilities
+            List<string> abilities = dto.Abilities.Values.ToList();
+
             //construct pokemon object, add it to the list
-            Pokemon pokemon = new(dto.Name, baseStats, type1, type2);
+            Pokemon pokemon = new(dto.Name, baseStats, abilities, type1, type2);
             pokemonList.Add(pokemon);
         }
 

@@ -27,14 +27,14 @@ public partial class PokemonPanel : UserControl
     }
 
     //Ability selection
-    private void AbilityAcb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    private void AbilityCb_SelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
         if(Pokemon == null)
         {
             return;
         }
         
-        if(AbilityAcb.SelectedItem is string selectedAbility)
+        if(AbilityCb.SelectedItem is string selectedAbility)
         {
             Pokemon.Ability = selectedAbility;
         }
@@ -121,17 +121,6 @@ public partial class PokemonPanel : UserControl
         if (string.IsNullOrWhiteSpace(NatureAcb.Text))
         {
             NatureAcb.Text = Pokemon.Nature.ToString();
-        }
-    }
-
-    //Ability selection lost focus handler
-    private void AbilityAcb_LostFocus(object? sender, RoutedEventArgs e)
-    {
-        if(Pokemon == null) return;
-
-        if (string.IsNullOrWhiteSpace(AbilityAcb.Text))
-        {
-            AbilityAcb.Text = Pokemon.Ability;
         }
     }
 
